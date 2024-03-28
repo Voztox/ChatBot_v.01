@@ -47,6 +47,7 @@ const channel = client.channel("messaging", "dialogflow", {
   created_by: { id: "admin" },
 });
 
+//used to connect the application with Dialogflow, get the result, and send it in to the chat channel, so that the Android app user gets updated in real-time
 app.post("/dialogflow", async (req, res) => {
   const { text } = req.body;
 
@@ -80,7 +81,7 @@ app.post("/dialogflow", async (req, res) => {
       });
     });
 });
-
+//used to create the user’s token, which will be used to identify and authenticate the user
 app.post("/auth", async (req, res) => {
   const username = req.body.username;
 
