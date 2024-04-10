@@ -15,12 +15,6 @@
 <!-- implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.   -->
 <!--  -->
 <!-- For more information see http://www.alicebot.org -->
-<category><pattern>WHAT IS JAVA</pattern>
-<template>Java is a programming language.</template>
-</category>
-<category><pattern>WHAT IS CHAT BOT</pattern>
-<template>Chatbot is a computer program designed to simulate conversation with human users, especially over the Internet.</template>
-</category>
 <category><pattern>WHAT IS API STANDS FOR</pattern>
 <template>API stands for Application Programming Interface</template>
 </category>
