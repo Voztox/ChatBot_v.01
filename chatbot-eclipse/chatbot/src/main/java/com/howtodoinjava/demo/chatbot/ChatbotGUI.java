@@ -17,34 +17,34 @@ public class ChatbotGUI extends JFrame {
 
     public ChatbotGUI(Chat chatSession) {
         this.chatSession = chatSession;
-        setTitle("NoName");
-        setSize(400, 400);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        setTitle("NoName"); // name of our chatbot
+        setSize(400, 400); // size of the jFrame
+        setDefaultCloseOperation(EXIT_ON_CLOSE); // close operation
+        setLayout(new BorderLayout()); // borderlayout
 
-        conversationArea = new JTextArea();
-        conversationArea.setEditable(false);
-        JScrollPane scrollPane = new JScrollPane(conversationArea);
-        add(scrollPane, BorderLayout.CENTER);
-
-        inputField = new JTextField();
-        inputField.addActionListener(new ActionListener() {
+        conversationArea = new JTextArea(); //Jtextare for conversation to display
+        conversationArea.setEditable(false); 
+        JScrollPane scrollPane = new JScrollPane(conversationArea); // scrollbar when the given space is not enough
+        add(scrollPane, BorderLayout.CENTER); // centering the jTextArea
+        
+        inputField = new JTextField(); //User input
+        inputField.addActionListener(new ActionListener() { 
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) { 
                 String input = inputField.getText();
-                addMessage("You", input);
+                addMessage("You", input); // display for the user input
                 inputField.setText("");
                 String response = chatSession.multisentenceRespond(input);
-                addMessage("Bot", response);
+                addMessage("noName Chatbot", response); //display for the bot's input
             }
         });
-        add(inputField, BorderLayout.SOUTH);
+        add(inputField, BorderLayout.SOUTH); //jFrame for the bottom of the display
 
         setVisible(true);
     }
 
     private void addMessage(String sender, String message) {
-        conversationArea.append(sender + ": " + message + "\n");
+        conversationArea.append(sender + ": " + message + "\n"); // messaging method
     }
 
     public static void main(String[] args) {
