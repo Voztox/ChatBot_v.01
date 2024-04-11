@@ -18,14 +18,14 @@ public class ChatbotGUI extends JFrame {
 	public ChatbotGUI(Chat chatSession) {
 		this.chatSession = chatSession;
 		setTitle("NoName"); // name of our chatbot
-		setSize(650, 650); // size of the jFrame
+		setSize(850, 250); // size of the jFrame
 		setDefaultCloseOperation(EXIT_ON_CLOSE); // close operation
 		setLayout(new BorderLayout()); // borderlayout
 
-		// Get the size of the screen
+		// dimension takes the size of the screen
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-		// Calculate the x and y coordinates to center the JFrame
+		// centering the screen
 		int x = (screenSize.width - getWidth()) / 2;
 		int y = (screenSize.height - getHeight()) / 2;
 
@@ -51,7 +51,7 @@ public class ChatbotGUI extends JFrame {
 			}
 		});
 		add(inputField, BorderLayout.SOUTH); //jFrame for the bottom of the display
-
+		
 		setVisible(true);
 	}
 
