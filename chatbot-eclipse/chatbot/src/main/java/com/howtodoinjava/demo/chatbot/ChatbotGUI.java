@@ -56,11 +56,13 @@ public class ChatbotGUI extends JFrame {
 		
 		setVisible(true);
 	}
-	private void sendInitialMessage() {
-		String initialMessage = "Hello, how is your day?"; // Initial message from the chatbot
-		addMessage("NoName Chatbot", initialMessage); // Display initial message
-	}
 
+	private void sendInitialMessage() {
+        String initialMessage = "Hello, which city are you gonna be in?"; // Initial message from the chatbot
+        addMessage("NoName Chatbot", initialMessage); // Display initial message
+    }
+
+	
 	private void addMessage(String sender, String message) {
 		conversationArea.append(sender + ": " + message + "\n"); // messaging method
 	}
