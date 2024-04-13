@@ -52,7 +52,13 @@ public class ChatbotGUI extends JFrame {
 		});
 		add(inputField, BorderLayout.SOUTH); //jFrame for the bottom of the display
 		
+		sendInitialMessage();
+		
 		setVisible(true);
+	}
+	private void sendInitialMessage() {
+		String initialMessage = "Hello, how is your day?"; // Initial message from the chatbot
+		addMessage("NoName Chatbot", initialMessage); // Display initial message
 	}
 
 	private void addMessage(String sender, String message) {
