@@ -1,6 +1,5 @@
 package com.howtodoinjava.demo.chatbot;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Scanner;
@@ -23,17 +22,24 @@ public class Chatbot {
 
             // Ask the user to enter 5 locations
             for (int i = 0; i < 5; i++) {
-                System.out.print("Enter location " + (i + 1) + ": ");
+                System.out.print("Hi, please enter destination " + (i + 1) + ": ");
                 locations[i] = scanner.nextLine();
             }
 
-            // loop for each location
+            // Loop for each location
             for (String location : locations) {
                 // Call API
                 String weatherResponse = getWeatherResponse(location);
 
-                // Print temperatures for the next three days, since we get location for 16 days from API
+                // Print temperatures for the next three days
                 printTemperaturesForNextThreeDays(location, weatherResponse);
+
+                // Get current temperature
+                double currentTemperature = getCurrentTemperature(weatherResponse);
+
+                // Suggest clothing based on current temperature
+                String clothingSuggestion = suggestClothing(currentTemperature);
+                System.out.println("Clothing suggestion for " + location + ": " + clothingSuggestion);
             }
 
             scanner.close();
@@ -47,17 +53,29 @@ public class Chatbot {
         String[] splitter = weatherResponse.split("\n");
 
         System.out.println("Temperatures for " + location + ":");
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 3 && i < splitter.length; i++) {
             String[] data = splitter[i].split(",");
 
-            // 9 element is temperature so we need only parse it
+            // 9th element is temperature
             double fahrenheit = Double.parseDouble(data[9]);
             double celsius = (fahrenheit - 32) * 5 / 9;
 
             // Print the temperature for 3 days
-            System.out.println("Day " + (i) + ": " + celsius + " degrees Celsius");
+            System.out.println("Day " + i + ": " + celsius + " degrees Celsius");
         }
         System.out.println();
+    }
+
+    private static double getCurrentTemperature(String weatherResponse) {
+        // Split by line
+        String[] splitter = weatherResponse.split("\n");
+
+        // First line contains current weather data
+        String[] data = splitter[1].split(",");
+
+        // 9th element is temperature
+        double fahrenheit = Double.parseDouble(data[9]);
+        return (fahrenheit - 32) * 5 / 9;
     }
 
     private static String getWeatherResponse(String location) throws IOException {
@@ -76,11 +94,20 @@ public class Chatbot {
 
         try (Response response = client.newCall(request).execute()) {
             if (response.isSuccessful()) {
-                
                 return response.body().string();
             } else {
-                throw new IOException("error code: " + response);
+                throw new IOException("Error " + response.code());
             }
+        }
+    }
+//clothing suggesstion based on temperature, if u want to add more based on other conditions use different index F.E double fahrenheit = Double.parseDouble(data[11]);
+    public static String suggestClothing(double temperature) {
+        if (temperature < 5) {
+            return "You should wear a light jacket.";
+        } else if (temperature < 17) {
+            return "You should wear a shirt.";
+        } else {
+            return "You should wear Borat's mankini";
         }
     }
 }
