@@ -2,7 +2,11 @@
 <aiml>
 <!-- File: update.aiml -->
 <!-- Author: Dr. Richard S. Wallace -->
+<<<<<<< HEAD
 <!-- Last modified: April 15, 2024 -->
+=======
+<!-- Last modified: April 13, 2024 -->
+>>>>>>> 3b5a2c3d3b35e20fde90b714893753f0718d6b98
 <!--  -->
 <!-- This AIML file is part of the SUPER 0.0.4 chat bot knowledge base. -->
 <!--  -->
@@ -19,7 +23,11 @@
 <template>S.U.P.E.R. AIML Bot version 0.0.4</template>
 </category>
 <category><pattern>BUILD</pattern>
+<<<<<<< HEAD
 <template>Mon Apr 15 11:57:04 BST 2024</template>
+=======
+<template>Sat Apr 13 12:25:44 IST 2024</template>
+>>>>>>> 3b5a2c3d3b35e20fde90b714893753f0718d6b98
 </category>
 <category><pattern>DELEVLOPMENT ENVIRONMENT</pattern>
 <template>Program AB 0.0.4.2 beta -- AI Foundation Reference AIML 2.0 implementation</template>
