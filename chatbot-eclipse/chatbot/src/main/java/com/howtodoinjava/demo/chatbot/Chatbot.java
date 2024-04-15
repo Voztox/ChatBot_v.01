@@ -44,8 +44,20 @@ public class Chatbot {
 
     private static void printTemperaturesForNextThreeDays(String location, String weatherResponse) {
         // Split by line
+        String[] splitter = weatherResponse.split("\n");
 
-        System.out.println(weatherResponse);
+        System.out.println("Temperatures for " + location + ":");
+        for (int i = 1; i <= 3; i++) {
+            String[] data = splitter[i].split(",");
+
+            // 9 element is temperature so we need only parse it
+            double fahrenheit = Double.parseDouble(data[9]);
+            double celsius = (fahrenheit - 32) * 5 / 9;
+
+            // Print the temperature for 3 days
+            System.out.println("Day " + (i) + ": " + celsius + " degrees Celsius");
+        }
+        System.out.println();
     }
 
     private static String getWeatherResponse(String location) throws IOException {
