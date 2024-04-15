@@ -37,10 +37,11 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/mertf/ChatBot_v.01/chatbot-eclipse/chatbot/Lib/Ab.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mertf/Downloads/kotlin-stdlib-1.9.21.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mertf/Downloads/okhttp-5.0.0-alpha.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mertf/Downloads/okhttp-jvm-5.0.0-alpha.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mertf/Downloads/annotations-13.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/annotations-13.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/kotlin-stdlib-1.9.21.jar"/>
+	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/okhttp-5.0.0-alpha.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/okhttp-jvm-5.0.0-alpha.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/okio-jvm-3.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/Ab.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
