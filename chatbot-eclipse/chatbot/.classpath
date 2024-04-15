@@ -37,11 +37,20 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/annotations-13.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/kotlin-stdlib-1.9.21.jar"/>
 	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/okhttp-5.0.0-alpha.12.jar"/>
 	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/okhttp-jvm-5.0.0-alpha.12.jar"/>
 	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/okio-jvm-3.7.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/osama/Downloads/program-ab-0.0.4.3/lib/Ab.jar"/>
+=======
+	<classpathentry kind="lib" path="/Users/puvatidasimcharoen/jar_files/okhttps/annotations-13.0.jar"/>
+	<classpathentry kind="lib" path="/Users/puvatidasimcharoen/jar_files/okhttps/kotlin-stdlib-1.9.21.jar"/>
+	<classpathentry kind="lib" path="/Users/puvatidasimcharoen/jar_files/okhttps/okhttp-5.0.0-alpha.12.jar"/>
+	<classpathentry kind="lib" path="/Users/puvatidasimcharoen/jar_files/okhttps/okhttp-jvm-5.0.0-alpha.12.jar"/>
+	<classpathentry kind="lib" path="/Users/puvatidasimcharoen/jar_files/okhttps/okio-jvm-3.7.0.jar"/>
+	<classpathentry kind="lib" path="Lib/Ab.jar"/>
+>>>>>>> 407e00000bd535b418de55603fcfaed572dedacf
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
