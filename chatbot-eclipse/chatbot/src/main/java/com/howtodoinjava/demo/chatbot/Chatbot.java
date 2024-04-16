@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Scanner;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -20,27 +20,7 @@ public class Chatbot {
         try {
             Scanner scanner = new Scanner(System.in);
             String[] locations = new String[5];
-=======
-import java.io.File;
-/*
- * This Chatbot.java class initializes the chatbot. 
- * sets it's trace mode and create chat.
- * there's also chatbotGUI
- * 
- */
 
-public class Chatbot {
-	//declare a final boolean variable and set it to false.
-    private static final boolean TRACE_MODE = false;
-
-    public static void main(String[] args) {
-        try {
-            String resourcesPath = getResourcesPath(); //calling getResourcePath in an assigned variable. 
-            MagicBooleans.trace_mode = TRACE_MODE; //set chatbot trace.mode.
-            Bot bot = new Bot("super", resourcesPath); //new instance of bot.
-            Chat chatSession = new Chat(bot); //new instance of chat, passing in bot object.
-            bot.brain.nodeStats(); //print bot.
->>>>>>> 407e00000bd535b418de55603fcfaed572dedacf
 
             // Ask the user to enter 5 locations
             for (int i = 0; i < 5; i++) {
@@ -48,7 +28,7 @@ public class Chatbot {
                 locations[i] = scanner.nextLine();
             }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
             // Loop for each location
             for (String location : locations) {
                 // Call API
@@ -67,14 +47,12 @@ public class Chatbot {
 
             scanner.close();
         } catch (Exception e) {
-=======
-        } catch (Exception e) { //catches exception.
->>>>>>> 407e00000bd535b418de55603fcfaed572dedacf
+
             e.printStackTrace();
         }
     }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
     private static void printTemperaturesForNextThreeDays(String location, String weatherResponse) {
         // Split by line
         String[] splitter = weatherResponse.split("\n");
