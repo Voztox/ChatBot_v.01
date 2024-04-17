@@ -43,5 +43,6 @@
 	<classpathentry exported="true" kind="lib" path="Lib/okhttp-5.0.0-alpha.12.jar"/>
 	<classpathentry exported="true" kind="lib" path="Lib/okhttp-jvm-5.0.0-alpha.12.jar"/>
 	<classpathentry exported="true" kind="lib" path="Lib/okio-jvm-3.7.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

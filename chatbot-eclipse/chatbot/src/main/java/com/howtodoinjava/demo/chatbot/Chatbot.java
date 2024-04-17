@@ -1,13 +1,14 @@
+//Importing required Packages
 package com.howtodoinjava.demo.chatbot;
 
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Scanner;
 
-//<<<<<<< HEAD
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+//End of imports 
 
 public class Chatbot {
     // RapidAPI Key
@@ -16,7 +17,7 @@ public class Chatbot {
     // RapidAPI Host
     private static final String RAPID_API_HOST = "visual-crossing-weather.p.rapidapi.com";
 
-    public static void main(String[] args) {
+    public Chatbot(OkHttpClient httpClient) {
         try {
             Scanner scanner = new Scanner(System.in);
             String[] locations = new String[5];
@@ -83,7 +84,7 @@ public class Chatbot {
         return (fahrenheit - 32) * 5 / 9;
     }
 
-    private static String getWeatherResponse(String location) throws IOException {
+   private static String getWeatherResponse(String location) throws IOException {
         OkHttpClient client = new OkHttpClient();
 
         // Encode the location
