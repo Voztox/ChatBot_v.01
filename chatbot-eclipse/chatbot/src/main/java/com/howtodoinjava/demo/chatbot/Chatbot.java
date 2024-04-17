@@ -84,7 +84,8 @@ public class Chatbot {
         return (fahrenheit - 32) * 5 / 9;
     }
 
-   private static String getWeatherResponse(String location) throws IOException {
+   public String getWeatherResponse(String location) throws IOException {
+	
         OkHttpClient client = new OkHttpClient();
 
         // Encode the location
@@ -102,7 +103,7 @@ public class Chatbot {
             if (response.isSuccessful()) {
                 return response.body().string();
             } else {
-                throw new IOException("Error " + response.code());
+                throw new IOException("Error " + response);
             }
         }
     }
