@@ -92,8 +92,18 @@ public class ChatbotTest {
 		double temp = chatbot.getCurrentTemperature(responseCnt);
 		//assert equal the expected values
 		Assert.assertEquals(responseCnt, temp);
-	}	
+	}
 
+	@Test
+	void suggest_ShirtTest() {
+		//for temperature 5 and 17degree
+		double temp = 10.0;
+		//calling the Suggest Clothing method in chatbot
+		String clothingSuggestion = chatbot.suggestClothing(temp);
+		//assert equal the result:
+		Assert.assertEquals("You should wear a shirt", clothingSuggestion);
+	}
+	
 	
 	
 }
