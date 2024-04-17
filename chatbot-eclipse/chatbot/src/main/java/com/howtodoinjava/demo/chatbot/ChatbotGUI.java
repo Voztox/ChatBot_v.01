@@ -30,7 +30,7 @@ public class ChatbotGUI extends JFrame {
     public ChatbotGUI(Chat chatSession) {
         this.chatSession = chatSession;
         setTitle("NoName");
-        setSize(850, 250);
+        setSize(850, 850);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
@@ -151,6 +151,7 @@ public class ChatbotGUI extends JFrame {
 
     private void addMessage(String sender, String message) {
         conversationArea.append(sender + ": " + message + "\n");
+        conversationArea.setCaretPosition(conversationArea.getDocument().getLength());
     }
 
     public static String suggestClothing(double temperature) {
