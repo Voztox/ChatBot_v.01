@@ -93,6 +93,9 @@ public class ChatbotTest {
 		//assert equal the expected values
 		Assert.assertEquals(responseCnt, temp);
 	}
+	
+	
+	//Clothing Suggestion methods:::
 
 	@Test
 	void suggest_ShirtTest() {
@@ -101,8 +104,20 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = chatbot.suggestClothing(temp);
 		//assert equal the result:
-		Assert.assertEquals("You should wear a shirt", clothingSuggestion);
+		Assert.assertEquals("You should wear a shirt.", clothingSuggestion);
 	}
+	
+	@Test
+	void suggest_LightJacketTest() {
+		//for temperature 5 and 17degree
+		double temp = 4.0;
+		//calling the Suggest Clothing method in chatbot
+		String clothingSuggestion = chatbot.suggestClothing(temp);
+		//assert equal the result:
+		Assert.assertEquals("You should wear a light jacket.", clothingSuggestion);
+	}
+	
+	
 	
 	
 	
