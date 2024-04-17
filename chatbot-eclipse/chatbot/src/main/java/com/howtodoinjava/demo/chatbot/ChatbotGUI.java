@@ -1,18 +1,18 @@
 package com.howtodoinjava.demo.chatbot;
-
 import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
 import org.alicebot.ab.MagicBooleans;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.net.URLEncoder;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 public class ChatbotGUI extends JFrame {
     // RapidAPI Key
@@ -30,14 +30,19 @@ public class ChatbotGUI extends JFrame {
     public ChatbotGUI(Chat chatSession) {
         this.chatSession = chatSession;
         setTitle("NoName");
-        setSize(850, 850);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
+        // Get the screen size
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (screenSize.width - getWidth()) / 2;
-        int y = (screenSize.height - getHeight()) / 2;
-        setLocation(x, y);
+
+        // Set the size to 75% of the screen width and height
+        int width = (int) (screenSize.width * 0.75);
+        int height = (int) (screenSize.height * 0.75);
+        setSize(width, height);
+
+        // Center the frame on the screen
+        setLocationRelativeTo(null);
 
         conversationArea = new JTextArea();
         conversationArea.setEditable(false);
