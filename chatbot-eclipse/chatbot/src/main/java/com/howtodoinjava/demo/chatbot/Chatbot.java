@@ -72,7 +72,7 @@ public class Chatbot {
         System.out.println();
     }
 
-    private static double getCurrentTemperature(String weatherResponse) {
+    public double getCurrentTemperature(String weatherResponse) {
         // Split by line
         String[] splitter = weatherResponse.split("\n");
 

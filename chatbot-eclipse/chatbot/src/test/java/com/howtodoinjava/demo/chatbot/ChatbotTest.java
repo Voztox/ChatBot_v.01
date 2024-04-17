@@ -76,7 +76,23 @@ public class ChatbotTest {
 	    
 	}
 	
-	
+	@Test 
+	void getCurrTempTestOne() {
+		//mock expected response:
+		String responseCnt = "Dublin, 04/17/2024, Dublin, Ireland, Dublin, Rain, Overcast\n" +
+				"Dublin, 04/18/2024, Dublin, Ireland, Dublin, Partially cloudy\n" +
+				"Dublin, 04/19/2024, Dublin, Ireland, Dublin, Overcast\n" +
+				"Dublin, 04/20/2024, Dublin, Ireland, Dublin, Partially cloudy\n" +
+				"Dublin, 04/21/2024, Dublin, Ireland, Dublin, Clear\n"+
+				"Dublin, 04/22/2024, Dublin, Ireland, Dublin, Partially cloudy\n"+
+				"Dublin, 04/23/2024, Dublin, Ireland, Dublin, Partially cloudy\n"+
+				"Dublin, 04/24/2024, Dublin, Ireland, Dublin, Partially cloudy\n";
+		
+		//calling the chatbot get current temperature method.
+		double temp = chatbot.getCurrentTemperature(responseCnt);
+		//assert equal the expected values
+		Assert.assertEquals(responseCnt, temp);
+	}	
 
 	
 	
