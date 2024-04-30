@@ -232,8 +232,14 @@ public class ChatbotTest {
 		Assert.assertNotEquals("You should wear a heavy coat.", clothingSuggestion);
 	}
 	@Test
-	void ifNotShirtTemp() {
-		
+	void ifNotShirtTemp() {//temperature supposed to be lower than 17 degree.
+		//for temperature of 8 degree clothing suggetions:
+		double temp = 20.0;
+		//calling the Suggest Clothing method in chatbot
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
+		//assert not equal the result:
+		Assert.assertNotEquals("You should wear a heavy coat.", clothingSuggestion);
+
 	}
 	@Test 
 	void ifNotShortTemp() {
