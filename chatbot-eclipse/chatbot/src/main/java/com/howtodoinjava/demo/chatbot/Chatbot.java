@@ -44,9 +44,8 @@ public class Chatbot {
 				// Suggest clothing based on current temperature
 				String clothingSuggestion = suggestClothing(currentTemperature);
 				System.out.println("Clothing suggestion for " + location + ": " + clothingSuggestion);
-//				location.getPercipitation(weatherResponse);
-				double percipitation = getPrecipitation(weatherResponse);
-				System.out.println( "Percipitaton for :" +percipitation);
+
+				
 			}
 
 			scanner.close();
@@ -55,17 +54,9 @@ public class Chatbot {
 			e.printStackTrace();
 		}
 	}
-	 // Method to parse precipitation data from weather response
-    public double getPrecipitation(String weatherResponse) {
-        // Split by line
-        String[] splitter = weatherResponse.split("\n");
+	
+	
 
-        // First line contains current weather data
-        String[] data = splitter[1].split(",");
-
-        // 7th element is precipitation
-        return Double.parseDouble(data[7]);
-    }
 
 	//<<<<<<< HEAD
 	private static void printTemperaturesForNextThreeDays(String location, String weatherResponse) {
@@ -85,6 +76,12 @@ public class Chatbot {
 		}
 		System.out.println();
 	}
+	
+	//getPrecipitation method to get preicipitation in percentage. 
+	public static String getPrecipitationPercentage(String weatherResponse) {
+				return null;
+				
+			}
 
 	public static double getCurrentTemperature(String weatherResponse) {
 		// Split by line
@@ -121,6 +118,8 @@ public class Chatbot {
 			}
 		}
 	}
+	
+	
 	//clothing suggesstion based on temperature, if u want to add more based on other conditions use different index F.E double fahrenheit = Double.parseDouble(data[11]);
 	// Update suggestClothing() method in your Chatbot class
 

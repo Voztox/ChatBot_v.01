@@ -267,7 +267,20 @@ public class ChatbotTest {
 	//for slight showers:::::
 	@Test
 	void slightShowersTenPercent() { //10-30% is a low - slight showers of precipitaton.
+
+		//mock weather response: in percentage of rain:
+		String precipitation = "10.0";
 		
+		//calling the getPrecipitationPercentage method in chatbot. 
+		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
+		//assert Equal the results. 
+		Assert.assertEquals("There's a slight chance of showers", chanceOfRain);
+		
+		//if statement
+//		if(chanceOfRain < 30) {
+			
+//			
+//		}
 	}
 	
 	@Test
@@ -278,6 +291,7 @@ public class ChatbotTest {
 	void slightShowersTwentyNinePercent() { //10-30% is a low - slight showers of precipitaton.
 		
 	}
+	
 
 	
 	//for light rain::::::
@@ -294,6 +308,7 @@ public class ChatbotTest {
 	void lightRainSixtyPercent() { //40-60% is a moderate to light shower rainfall. 
 		
 	}
+	
 	
 	//for steady rain:::::::
 	@Test
