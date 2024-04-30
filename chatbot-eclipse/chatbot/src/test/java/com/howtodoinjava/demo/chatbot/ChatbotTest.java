@@ -319,6 +319,10 @@ public class ChatbotTest {
 	void heavyRainNinetyFivePercent() { //90-100% full chance of high heavy rain.
 		
 	}
+	@Test 
+	void heavyRainNinetyNinePercent() { //90-100% full chance of high heavy rain.
+		
+	}
 	
 	
 	
