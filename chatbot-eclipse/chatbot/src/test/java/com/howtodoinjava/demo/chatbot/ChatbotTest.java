@@ -141,7 +141,6 @@ public class ChatbotTest {
 	}
 	
 	
-	
 	@Test
 	void suggest_Mankini() {
 		//for temperature 5 and 17degree
@@ -155,7 +154,6 @@ public class ChatbotTest {
 	
 	
 	//Testing clothing suggestion on more temperature range range of temperatures:::
-	
 	
 	
 	
