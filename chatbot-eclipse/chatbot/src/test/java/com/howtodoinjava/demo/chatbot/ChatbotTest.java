@@ -274,6 +274,11 @@ public class ChatbotTest {
 		
 	}
 	
+	@Test
+	void steadyRainSeventyPercent() { //70-90 chance of steady rainfall. 
+		
+	}
+	
 	
 	
 	
