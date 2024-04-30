@@ -79,7 +79,17 @@ public class Chatbot {
 	
 	//getPrecipitation method to get preicipitation in percentage. 
 	public static String getPrecipitationPercentage(String weatherResponse) {
-				return null;
+				//split by lines
+		String[] splitter = weatherResponse.split("\n");
+		
+		//if api weather response contains multiple lines:
+	    if (splitter.length >= 2) {
+	    	//we would also have to split the secon line.
+	    	 String[] data = splitter[1].split(",");
+	    	
+	    	
+	    }
+		return null;
 				
 			}
 
