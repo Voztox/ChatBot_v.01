@@ -146,7 +146,7 @@ public class ChatbotTest {
 		//for temperature 25 degree
 		double temp = 25;
 
-		//implementing a con
+		//implementing if statment for the else condition
 		if (temp >= 25) {
 			//calling the Suggest Clothing method in chatbot
 			String clothingSuggestion = Chatbot.suggestClothing(temp);
@@ -197,7 +197,16 @@ public class ChatbotTest {
 	}
 	@Test
 	void mankiniForTempTwentySix() {
-		
+		//for temperature 25 degree
+		double temp = 26;
+
+		//implementing if statment for the else condition
+		if (temp > 25) {
+		//calling the Suggest Clothing method in chatbot
+		    String clothingSuggestion = Chatbot.suggestClothing(temp);
+		//assert Equal the conditon
+			Assert.assertEquals("You should wear a Borat's mankini.", clothingSuggestion);
+			}
 	}
 	
 	
