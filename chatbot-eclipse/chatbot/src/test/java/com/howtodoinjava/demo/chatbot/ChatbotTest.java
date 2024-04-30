@@ -97,16 +97,18 @@ public class ChatbotTest {
 	
 	
 	
-	//Clothing Suggestion methods:::
+	//Testing if basic  temperatures for 
+	//Clothing Suggestion methods works:::
 
 	@Test
-	void suggest_ShirtTest() {
-		//for temperature 5 and 17degree
-		double temp = 10.0;
+	void suggest_HeavyCoat() {
+		//for temperature of -4 clothing suggetions:
+		double temp = -4.0;
 		//calling the Suggest Clothing method in chatbot
-		String clothingSuggestion = Chatbot.suggestClothing(temp);
-		//assert equal the result:
-		Assert.assertEquals("You should wear a shirt.", clothingSuggestion);
+				String clothingSuggestion = Chatbot.suggestClothing(temp);
+				//assert equal the result:
+				Assert.assertEquals("You should wear a heavy coat.", clothingSuggestion);
+					
 	}
 	
 	@Test
@@ -118,6 +120,27 @@ public class ChatbotTest {
 		//assert equal the result:
 		Assert.assertEquals("You should wear a light jacket.", clothingSuggestion);
 	}
+
+	@Test
+	void suggest_ShirtTest() {
+		//for temperature 5 and 17degree
+		double temp = 10.0;
+		//calling the Suggest Clothing method in chatbot
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
+		//assert equal the result:
+		Assert.assertEquals("You should wear a shirt.", clothingSuggestion);
+	}
+	
+	void suggest_ShortTest() {
+		//for temperature 5 and 17degree
+		double temp = 20.0;
+		//calling the Suggest Clothing method in chatbot
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
+		//assert equal the result:
+		Assert.assertEquals("You should wear shorts.", clothingSuggestion);
+	}
+	
+	
 	
 	@Test
 	void suggest_Mankini() {
@@ -131,16 +154,12 @@ public class ChatbotTest {
 	
 	
 	
-	@Test
-	void suggest_HeavyCoat() {
-		//for temperature of -4 clothing suggetions:
-		double temp = -4.0;
-		//calling the Suggest Clothing method in chatbot
-				String clothingSuggestion = Chatbot.suggestClothing(temp);
-				//assert equal the result:
-				Assert.assertEquals("You should wear a heavy coat.", clothingSuggestion);
-				
-	}
+	//Testing clothing suggestion on more temperature range range of temperatures:::
+	
+	
+	
+	
+	
 	
 	
 	
