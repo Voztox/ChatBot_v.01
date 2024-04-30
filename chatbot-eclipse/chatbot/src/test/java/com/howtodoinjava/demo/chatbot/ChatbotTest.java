@@ -144,18 +144,29 @@ public class ChatbotTest {
 	@Test
 	void suggest_Mankini() {
 		//for temperature 5 and 17degree
-		double temp = 25.0;
-		//calling the Suggest Clothing method in chatbot
-		String clothingSuggestion = Chatbot.suggestClothing(temp);
-		//assert equal the result:
-		Assert.assertEquals("You should wear a Borat's mankini.", clothingSuggestion);
+		double temp = 25;
+
+		//implementing a con
+		if (temp >= 25) {
+			//calling the Suggest Clothing method in chatbot
+			String clothingSuggestion = Chatbot.suggestClothing(temp);
+			//assert Equal the conditon
+			Assert.assertEquals("You should wear a Borat's mankini.", clothingSuggestion);
+		}
 	}
 	
 	
 	
 	//Testing clothing suggestion on more temperature range range of temperatures:::
 	
-	
+	@Test
+	void heavyCoatForTempMinusTen() {
+		
+	}
+	@Test
+	void lightJacketForTempTen() {
+		
+	}
 	
 	
 	

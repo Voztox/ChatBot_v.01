@@ -570,3 +570,7 @@
 2024-04-30 17:51:30,833 [Worker-60: Launching ChatbotTest] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2024-04-30 17:51:30,844 [Worker-60: Launching ChatbotTest] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2024-04-30 17:51:30,847 [Worker-60: Launching ChatbotTest] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2024-04-30 18:26:57,555 [Worker-70: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-04-30 18:26:57,574 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2024-04-30 18:26:57,628 [Worker-70: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-04-30 18:26:57,631 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
