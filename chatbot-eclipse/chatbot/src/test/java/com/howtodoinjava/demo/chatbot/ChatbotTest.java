@@ -164,7 +164,11 @@ public class ChatbotTest {
 		
 	}
 	@Test
-	void lightJacketForTempTen() {
+	void lightJacketForTempFive() {
+		
+	}
+	@Test
+	void shirtForTempTen() {
 		
 	}
 	
