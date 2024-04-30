@@ -161,7 +161,12 @@ public class ChatbotTest {
 	
 	@Test
 	void heavyCoatForTempMinusTen() {
-		
+		//for temperature of -4 clothing suggetions:
+		double temp = -10.0;
+		//calling the Suggest Clothing method in chatbot
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
+		//assert equal the result:
+		Assert.assertEquals("You should wear a heavy coat.", clothingSuggestion);
 	}
 	@Test
 	void lightJacketForTempThree() {
