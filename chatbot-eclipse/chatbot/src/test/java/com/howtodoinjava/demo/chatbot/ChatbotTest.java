@@ -229,7 +229,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert not equal the result:
-		Assert.assertNotEquals("You should wear a heavy coat.", clothingSuggestion);
+		Assert.assertNotEquals("You should wear a light jacket.", clothingSuggestion);
 	}
 	@Test
 	void ifNotShirtTemp() {//temperature supposed to be lower than 17 degree.
@@ -238,7 +238,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert not equal the result:
-		Assert.assertNotEquals("You should wear a heavy coat.", clothingSuggestion);
+		Assert.assertNotEquals("You should wear a shirt.", clothingSuggestion);
 
 	}
 	@Test 
@@ -248,11 +248,17 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert not equal the result:
-		Assert.assertNotEquals("You should wear a heavy coat.", clothingSuggestion);
+		Assert.assertNotEquals("You should wear shorts.", clothingSuggestion);
 		
 	}
 	@Test 
-	void ifNotMankiniTemp() {
+	void ifNotMankiniTemp() {//temperature supposed to be above 25 degree.
+		//for temperature of 31 degree clothing suggetions:
+		double temp = 7.0;
+		//calling the Suggest Clothing method in chatbot
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
+		//assert not equal the result:
+		Assert.assertNotEquals("You should wear Borat's mankini", clothingSuggestion);
 		
 	}
 	
