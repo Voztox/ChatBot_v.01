@@ -95,6 +95,8 @@ public class ChatbotTest {
 	}
 	
 	
+	
+	
 	//Clothing Suggestion methods:::
 
 	@Test
@@ -102,7 +104,7 @@ public class ChatbotTest {
 		//for temperature 5 and 17degree
 		double temp = 10.0;
 		//calling the Suggest Clothing method in chatbot
-		String clothingSuggestion = chatbot.suggestClothing(temp);
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
 		Assert.assertEquals("You should wear a shirt.", clothingSuggestion);
 	}
@@ -112,7 +114,7 @@ public class ChatbotTest {
 		//for temperature 5 and 17degree
 		double temp = 4.0;
 		//calling the Suggest Clothing method in chatbot
-		String clothingSuggestion = chatbot.suggestClothing(temp);
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
 		Assert.assertEquals("You should wear a light jacket.", clothingSuggestion);
 	}
@@ -122,10 +124,24 @@ public class ChatbotTest {
 		//for temperature 5 and 17degree
 		double temp = 25.0;
 		//calling the Suggest Clothing method in chatbot
-		String clothingSuggestion = chatbot.suggestClothing(temp);
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
 		Assert.assertEquals("You should wear a Borat's mankini.", clothingSuggestion);
 	}
+	
+	
+	
+	@Test
+	void suggest_HeavyCoat() {
+		double temp = -4.0;
+		//calling the Suggest Clothing method in chatbot
+				String clothingSuggestion = Chatbot.suggestClothing(temp);
+				//assert equal the result:
+				Assert.assertEquals("You should wear a Borat's mankini.", clothingSuggestion);
+				
+	}
+	
+	
 	
 	
 	

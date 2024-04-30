@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="okhttp3.internal.connection.RealCall"/>
+    <fullyQualifiedTypeName name="org.mockito.MockitoAnnotations"/>
+    <fullyQualifiedTypeName name="okhttp3.ResponseBody"/>
+    <fullyQualifiedTypeName name="okhttp3.MediaType"/>
+    <fullyQualifiedTypeName name="okhttp3.Protocol"/>
+    <fullyQualifiedTypeName name="okhttp3.Request"/>
+    <fullyQualifiedTypeName name="org.mockito.Mock"/>
+    <fullyQualifiedTypeName name="java.net.http.HttpResponse"/>
+    <fullyQualifiedTypeName name="java.io.InputStream"/>
+    <fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+    <fullyQualifiedTypeName name="org.junit.Assert"/>
+</qualifiedTypeNameHistroy>

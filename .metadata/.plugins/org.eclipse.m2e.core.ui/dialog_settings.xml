@@ -72,4 +72,8 @@
 		<item key="x" value="702"/>
 		<item key="y" value="90"/>
 	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
 </section>
