@@ -17,7 +17,7 @@ public class ChatbotClothingTest {
     }
     @Test
     public void testSuggestClothingWarm() {
-        double temperature = 15; // Assume a temperature within the "warm" range
+        double temperature = 20; // Assume a temperature within the "warm" range
         String expected = "You should wear shorts."; // Expected clothing suggestion for warm temperature
         String result = Chatbot.suggestClothing(temperature);
         assertEquals(expected, result);
