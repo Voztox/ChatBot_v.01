@@ -290,6 +290,10 @@ public class ChatbotTest {
 	void lightRainFiftyPercent() { //40-60% is a moderate to light shower rainfall. 
 		
 	}
+	@Test
+	void lightRainSixtyPercent() { //40-60% is a moderate to light shower rainfall. 
+		
+	}
 	
 	//for steady rain
 	@Test

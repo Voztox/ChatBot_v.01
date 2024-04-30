@@ -4617,3 +4617,9 @@ Caused by: Java Model Exception: Error in Java Model (code 969): ightRainFourtyP
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2024-04-30 23:31:38.066
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-04-30 23:32:40.031
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-04-30 23:32:40.040
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
