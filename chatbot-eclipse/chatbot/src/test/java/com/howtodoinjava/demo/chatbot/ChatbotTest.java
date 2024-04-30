@@ -402,7 +402,14 @@ public class ChatbotTest {
 	}
 	@Test 
 	void heavyRainNinetyNinePercent() { //90-100% full chance of high heavy rain.
-		
+		//mock weather response: in percentage of rain:
+		String precipitation = "99.0";
+								
+		//calling the getPrecipitationPercentage method in chatbot. 
+		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
+		//assert Equal the results. 
+		Assert.assertEquals("Allert - Heavy Rainfall!", chanceOfRain);
+
 	}
 	
 	
