@@ -1,4 +1,6 @@
 package com.howtodoinjava.demo.chatbot;
+
+// Import necessary libraries
 import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
 import org.alicebot.ab.MagicBooleans;
@@ -14,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
 
+// Main class for the Chatbot GUI
 public class ChatbotGUI extends JFrame {
     // RapidAPI Key
     private static final String RAPID_API_KEY = "5cbd79b3f8mshd316ad243985354p122029jsn597e43ad9374";
@@ -21,17 +24,19 @@ public class ChatbotGUI extends JFrame {
     // RapidAPI Host
     private static final String RAPID_API_HOST = "visual-crossing-weather.p.rapidapi.com";
 
+    // Components for the GUI
     private JTextArea conversationArea;
     private JTextField inputField;
     private Chat chatSession;
     private int locationIndex = 0;
     private String[] locations = new String[5];
 
+    // Constructor
     public ChatbotGUI(Chat chatSession) {
         this.chatSession = chatSession;
-        setTitle("NoName");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        setTitle("NoName"); // Set window title
+        setDefaultCloseOperation(EXIT_ON_CLOSE); // Set default close operation
+        setLayout(new BorderLayout()); // Set layout manager
 
         // Get the screen size
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -44,12 +49,14 @@ public class ChatbotGUI extends JFrame {
         // Center the frame on the screen
         setLocationRelativeTo(null);
 
+        // Create and configure conversation area
         conversationArea = new JTextArea();
         conversationArea.setEditable(false);
         conversationArea.setFont(new Font("Arial", Font.PLAIN, 24));
         JScrollPane scrollPane = new JScrollPane(conversationArea);
         add(scrollPane, BorderLayout.CENTER);
 
+        // Create and configure input field
         inputField = new JTextField();
         inputField.setFont(new Font("Arial", Font.PLAIN, 24));
         inputField.addActionListener(new ActionListener() {
@@ -71,15 +78,18 @@ public class ChatbotGUI extends JFrame {
         });
         add(inputField, BorderLayout.SOUTH);
 
+        // Prompt user to enter the first location
         askForNextLocation();
 
-        setVisible(true);
+        setVisible(true); // Make the frame visible
     }
 
+    // Prompt user to enter next location
     private void askForNextLocation() {
         conversationArea.append("Please enter destination " + (locationIndex + 1) + ": ");
     }
 
+    // Fetch weather information for each location and suggest clothing
     private void fetchWeatherAndSuggestClothing() {
         for (String location : locations) {
             addMessage("NoName Chatbot", "Fetching weather for " + location);
@@ -95,6 +105,7 @@ public class ChatbotGUI extends JFrame {
         }
     }
 
+    // Print temperatures for the next three days for a location
     private void printTemperaturesForNextThreeDays(String location, String weatherResponse) {
         String[] splitter = weatherResponse.split("\n");
         conversationArea.append("Temperatures for " + location + ":\n");
@@ -107,6 +118,7 @@ public class ChatbotGUI extends JFrame {
         conversationArea.append("\n");
     }
 
+    // Get current temperature from weather response
     private double getCurrentTemperature(String weatherResponse) {
         String[] splitter = weatherResponse.split("\n");
         String[] data = splitter[1].split(",");
@@ -114,6 +126,7 @@ public class ChatbotGUI extends JFrame {
         return (fahrenheit - 32) * 5 / 9;
     }
 
+    // Get weather response from API
     private String getWeatherResponse(String location) throws Exception {
         OkHttpClient client = new OkHttpClient();
         String encodedLocation = URLEncoder.encode(location, "UTF-8");
@@ -133,6 +146,7 @@ public class ChatbotGUI extends JFrame {
         }
     }
 
+    // Main method
     public static void main(String[] args) {
         try {
             String resourcesPath = getResourcesPath();
@@ -145,6 +159,7 @@ public class ChatbotGUI extends JFrame {
         }
     }
 
+    // Get resources path
     private static String getResourcesPath() {
         File currDir = new File(".");
         String path = currDir.getAbsolutePath();
@@ -154,11 +169,13 @@ public class ChatbotGUI extends JFrame {
         return resourcesPath;
     }
 
+    // Add a message to the conversation area
     private void addMessage(String sender, String message) {
         conversationArea.append(sender + ": " + message + "\n");
         conversationArea.setCaretPosition(conversationArea.getDocument().getLength());
     }
 
+    // Suggest clothing based on temperature
     public static String suggestClothing(double temperature) {
         if (temperature < 5) {
             return "You should wear a light jacket.";
