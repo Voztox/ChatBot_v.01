@@ -228,6 +228,10 @@ public class ChatbotTest {
 	void ifNotShortTemp() {
 		
 	}
+	@Test 
+	void ifNotMankiniTemp() {
+		
+	}
 	
 	
 	
