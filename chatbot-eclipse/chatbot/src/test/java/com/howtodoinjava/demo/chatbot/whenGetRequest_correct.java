@@ -17,7 +17,7 @@ public class whenGetRequest_correct {
                 .url("https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=Dublin%2C%20IE&contentType=csv&unitGroup=us&shortColumnNames=0")
                 .get()
                 //api Key
-                .addHeader("X-RapidAPI-Key", "b47b0922e4msh19452d17bed706cp1ad4bdjsn6a8c20371cb6")
+                .addHeader("X-RapidAPI-Key", "5cbd79b3f8mshd316ad243985354p122029jsn597e43ad9374")
                 //api host
                 .addHeader("X-RapidAPI-Host", "visual-crossing-weather.p.rapidapi.com")
                 .build();
