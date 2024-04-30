@@ -144,10 +144,10 @@ public class ChatbotTest {
 	@Test
 	void suggest_Mankini() {
 		//for temperature 25 degree
-		double temp = 25;
+		double temp = 27.0;
 
 		//implementing if statment for the else condition
-		if (temp >= 25) {
+		if (temp > 25.0) {
 			//calling the Suggest Clothing method in chatbot
 			String clothingSuggestion = Chatbot.suggestClothing(temp);
 			//assert Equal the conditon
@@ -198,10 +198,10 @@ public class ChatbotTest {
 	@Test
 	void mankiniForTempTwentySix() {
 		//for temperature 25 degree
-		double temp = 26;
+		double temp = 26.0;
 
 		//implementing if statment for the else condition
-		if (temp > 25) {
+		if (temp > 25.0) {
 		//calling the Suggest Clothing method in chatbot
 		    String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert Equal the conditon
@@ -209,6 +209,13 @@ public class ChatbotTest {
 			}
 	}
 	
+	//Testing if temperature and coding suggestions based on:
+	//the false instead of assertEqual logic. 
+	
+	@Test
+	void ifNotHeavyCoat() {
+
+	}
 	
 	
 	
