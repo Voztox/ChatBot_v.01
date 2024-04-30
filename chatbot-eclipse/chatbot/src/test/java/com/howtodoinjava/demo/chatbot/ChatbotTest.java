@@ -213,18 +213,23 @@ public class ChatbotTest {
 	//using ASSERT NOT QUAL instead of assertEqual logic. 
 	
 	@Test
-	void ifNotHeavyCoat() {
-		//for temperature of -6 clothing suggetions:
+	void ifNotHeavyCoat() {//temperature supposed to be lower than -5 degree.
+		//for temperature of -6 degree clothing suggetions:
 		double temp = -1.0;
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
-		//assert equal the result:
+		//assert not equal the result:
 		Assert.assertNotEquals("You should wear a heavy coat.", clothingSuggestion);
 		
 	}
 	@Test
-	void ifNotLightJacketTemp() {
-		
+	void ifNotLightJacketTemp() { //temperature supposed to be lower than 5 degree.
+		//for temperature of 8 degree clothing suggetions:
+		double temp = 8.0;
+		//calling the Suggest Clothing method in chatbot
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
+		//assert not equal the result:
+		Assert.assertNotEquals("You should wear a heavy coat.", clothingSuggestion);
 	}
 	@Test
 	void ifNotShirtTemp() {
