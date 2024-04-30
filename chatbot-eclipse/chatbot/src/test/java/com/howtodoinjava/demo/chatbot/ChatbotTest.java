@@ -345,7 +345,14 @@ public class ChatbotTest {
 	//for steady rain:::::::
 	@Test
 	void steadyRainSeventyPercent() { //70-90 chance of steady rainfall. 
-		
+		//mock weather response: in percentage of rain:
+		String precipitation = "70.0";
+								
+		//calling the getPrecipitationPercentage method in chatbot. 
+		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
+		//assert Equal the results. 
+		Assert.assertEquals("There will be a steady rainfall", chanceOfRain);
+
 	}
 	@Test
 	void steadyRainEightyPercent() { //70-90 chance of steady rainfall. 
