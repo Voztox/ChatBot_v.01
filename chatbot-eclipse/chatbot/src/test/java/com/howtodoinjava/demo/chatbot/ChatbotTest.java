@@ -262,6 +262,9 @@ public class ChatbotTest {
 		
 	}
 	
+	void slightShowersTenPercent() { //10-30% is a low - slight showers of precipitaton.
+		
+	}
 	
 	
 	
