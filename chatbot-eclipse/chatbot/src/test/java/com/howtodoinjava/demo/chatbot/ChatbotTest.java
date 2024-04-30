@@ -295,7 +295,7 @@ public class ChatbotTest {
 		
 	}
 	
-	//for steady rain
+	//for steady rain:::::::
 	@Test
 	void steadyRainSeventyPercent() { //70-90 chance of steady rainfall. 
 		
@@ -308,9 +308,15 @@ public class ChatbotTest {
 	void steadyRainEightyNinePercent() { //70-90 chance of steady rainfall. 
 		
 	}
-	//for heavy rain
+	
+	
+	//for heavy rain:::::::::
 	@Test 
 	void heavyRainNinetyPercent() { //90-100% full chance of high heavy rain.
+		
+	}
+	@Test 
+	void heavyRainNinetyFivePercent() { //90-100% full chance of high heavy rain.
 		
 	}
 	
