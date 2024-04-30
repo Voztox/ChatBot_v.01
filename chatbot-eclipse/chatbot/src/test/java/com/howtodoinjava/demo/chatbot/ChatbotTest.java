@@ -113,7 +113,7 @@ public class ChatbotTest {
 	
 	@Test
 	void suggest_LightJacketTest() {
-		//for temperature 5 and 17degree
+		//for temperature below -5 degree
 		double temp = 4.0;
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
@@ -123,8 +123,8 @@ public class ChatbotTest {
 
 	@Test
 	void suggest_ShirtTest() {
-		//for temperature 5 and 17degree
-		double temp = 10.0;
+		//for temperature 10 degree
+		double temp = 12.0;
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
@@ -132,7 +132,7 @@ public class ChatbotTest {
 	}
 	
 	void suggest_ShortTest() {
-		//for temperature 5 and 17degree
+		//for temperature 20 degree
 		double temp = 20.0;
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
@@ -143,7 +143,7 @@ public class ChatbotTest {
 	
 	@Test
 	void suggest_Mankini() {
-		//for temperature 5 and 17degree
+		//for temperature 25 degree
 		double temp = 25;
 
 		//implementing a con
@@ -170,11 +170,21 @@ public class ChatbotTest {
 	}
 	@Test
 	void lightJacketForTempThree() {
+		//for temperature of 3 degreee
+		double temp = 3.0;
+		//calling the Suggest Clothing method in chatbot
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
+		//assert equal the result:
+		Assert.assertEquals("You should wear a light jacket.", clothingSuggestion);
 		
 	}
 	@Test
 	void shirtForTempTen() {
-		
+		double temp = 10.0;
+		//calling the Suggest Clothing method in chatbot
+		String clothingSuggestion = Chatbot.suggestClothing(temp);
+		//assert equal the result:
+		Assert.assertEquals("You should wear a shirt.", clothingSuggestion);
 	}
 	@Test
 	void shortForTempTwentyTwo() {
