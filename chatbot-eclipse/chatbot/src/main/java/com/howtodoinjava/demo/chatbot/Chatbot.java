@@ -87,7 +87,15 @@ public class Chatbot {
 	    	//we would also have to split the secon line.
 	    	 String[] data = splitter[1].split(",");
 	    	
-	    	
+	    	 //try catch::::
+	    	 try {
+	    		 
+	    	 }//try
+	    	 catch(NumberFormatException e) {
+	                // Handle parsing errors if any
+	                e.printStackTrace();
+	            }//catch
+
 	    }
 		return null;
 				
