@@ -274,7 +274,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("There's a slight chance of showers", chanceOfRain);
+		Assert.assertEquals("Light Rain Expected", chanceOfRain);
 		
 		//if statement
 //		if(chanceOfRain < 30) {
@@ -291,7 +291,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("There's a slight chance of showers", chanceOfRain);
+		Assert.assertEquals("Light Rain Expected", chanceOfRain);
 				
 	}
 	@Test
@@ -302,7 +302,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("There's a slight chance of showers", chanceOfRain);
+		Assert.assertEquals("Light Rain Expected", chanceOfRain);
 	}
 	
 
@@ -317,7 +317,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("There will be a moderate light shower", chanceOfRain);
+		Assert.assertEquals("Moderate Rain Expected", chanceOfRain);
 	}
 	@Test
 	void lightRainFiftyPercent() { //40-60% is a moderate to light shower rainfall. 
@@ -327,7 +327,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("There will be a moderate light shower", chanceOfRain);
+		Assert.assertEquals("Moderate Rain Expected", chanceOfRain);
 	}
 	@Test
 	void lightRainSixtyPercent() { //40-60% is a moderate to light shower rainfall. 
@@ -337,7 +337,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("There will be a moderate light shower", chanceOfRain);
+		Assert.assertEquals("Moderate Rain Expected", chanceOfRain);
 
 	}
 	
@@ -351,7 +351,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("There will be a steady rainfall", chanceOfRain);
+		Assert.assertEquals("Heavy Rain Expected", chanceOfRain);
 
 	}
 	@Test
@@ -362,7 +362,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("There will be a steady rainfall", chanceOfRain);
+		Assert.assertEquals("Heavy Rain Expected", chanceOfRain);
 	}
 	@Test
 	void steadyRainEightyNinePercent() { //70-90 chance of steady rainfall. 
@@ -372,7 +372,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("There will be a steady rainfall", chanceOfRain);
+		Assert.assertEquals("Heavy Rain Expected", chanceOfRain);
 
 	}
 	
