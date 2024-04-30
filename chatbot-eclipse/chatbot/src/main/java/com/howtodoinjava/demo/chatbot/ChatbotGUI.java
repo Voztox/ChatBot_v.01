@@ -176,19 +176,20 @@ public class ChatbotGUI extends JFrame {
 	}
 
 	// Suggest clothing based on temperature
-	// Update suggestClothing() method in your Chatbot class
-
 	public static String suggestClothing(double temperature) {
-		if (temperature < 5) {
-			return "You should wear a light jacket.";
-		} else if (temperature < 17) {
-			return "You should wear a shirt.";
-		} else if (temperature < 25) { // Add this condition for warm temperatures
-			return "You should wear shorts."; // Suggest wearing shorts for warm temperatures
-		} else {
-			return "You should wear Borat's mankini";
-		}
+	    if (temperature < -5) { // Update condition for very cold temperatures
+	        return "You should wear a heavy coat."; // Suggest wearing a heavy coat for very cold temperatures
+	    } else if (temperature < 5) {
+	        return "You should wear a light jacket.";
+	    } else if (temperature < 17) {
+	        return "You should wear a shirt.";
+	    } else if (temperature < 25) {
+	        return "You should wear shorts.";
+	    } else {
+	        return "You should wear Borat's mankini";
+	    }
 	}
+
 
 
 }
