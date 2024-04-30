@@ -264,7 +264,7 @@ public class ChatbotTest {
 	
 	//TESTING PERCENTAGE OF PRECIPITATION::::::::
 	
-	//for slight showers
+	//for slight showers:::::
 	@Test
 	void slightShowersTenPercent() { //10-30% is a low - slight showers of precipitaton.
 		
@@ -280,9 +280,14 @@ public class ChatbotTest {
 	}
 
 	
-	//for light rain
+	//for light rain::::::
+	
 	@Test
 	void lightRainFourtyPercent() { //40-60% is a moderate to light shower rainfall. 
+		
+	}
+	@Test
+	void lightRainFiftyPercent() { //40-60% is a moderate to light shower rainfall. 
 		
 	}
 	
