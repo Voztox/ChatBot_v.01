@@ -224,7 +224,10 @@ public class ChatbotTest {
 	void ifNotShirtTemp() {
 		
 	}
-	
+	@Test 
+	void ifNotShortTemp() {
+		
+	}
 	
 	
 	
