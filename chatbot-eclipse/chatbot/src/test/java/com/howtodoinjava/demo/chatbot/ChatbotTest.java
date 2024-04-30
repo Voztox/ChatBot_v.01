@@ -216,6 +216,15 @@ public class ChatbotTest {
 	void ifNotHeavyCoat() {
 
 	}
+	@Test
+	void ifNotLightJacketTemp() {
+		
+	}
+	@Test
+	void ifNotShirtTemp() {
+		
+	}
+	
 	
 	
 	
