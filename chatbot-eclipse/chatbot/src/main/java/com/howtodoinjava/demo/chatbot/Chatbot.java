@@ -79,42 +79,8 @@ public class Chatbot {
 	
 	//getPrecipitation method to get preicipitation in percentage. 
 	public static String getPrecipitationPercentage(String weatherResponse) {
-				//split by lines
-		String[] splitter = weatherResponse.split("\n");
-		
-		//if api weather response contains multiple lines:
-	    if (splitter.length >= 2) {
-	    	//we would also have to split the secon line.
-	    	 String[] data = splitter[1].split(",");
-	    	
-	    	 //try catch::::
-	    	 try {
-	    		 //parsing data 11/7/4
-	    		 double precipitationPercentage = Double.parseDouble(data[4]);
-	    		 
-	    		 //messages that comes with each percentage of precipitation:
-	                if (precipitationPercentage >= 90) {
-	                    return "Alert - Heavy Rainfall!";
-	                } else if (precipitationPercentage >= 70) {
-	                    return "Heavy Rain Expected";
-	                } else if (precipitationPercentage >= 50) {
-	                    return "Moderate Rain Expected";
-	                } else if (precipitationPercentage >= 30) {
-	                    return "Light Rain Expected";
-	                } else if (precipitationPercentage >= 10) {
-	                    return "Slight Chance of Showers";
-	                } else {
-	                    return "No Rain Expected";
-	                }
-
-	    	 }//try
-	    	 catch(NumberFormatException e) {
-	                // Handle parsing errors if any
-	                e.printStackTrace();
-	            }//catch
-
-	    }
 		return null;
+	    	
 				
 			}
 

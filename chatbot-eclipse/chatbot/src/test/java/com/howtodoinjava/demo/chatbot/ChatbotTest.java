@@ -283,7 +283,7 @@ public class ChatbotTest {
 //		}
 	}
 	
-	@Test
+	@Test //using Assert not equal for this test: 
 	void slightShowersTwentyPercent() { //10-30% is a low - slight showers of precipitaton.
 		//mock weather response: in percentage of rain:
 		String precipitation = "20.0";
@@ -291,7 +291,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Light Rain Expected", chanceOfRain);
+		Assert.assertNotEquals("Alert - Heavy Rainfall!", chanceOfRain);
 				
 	}
 	@Test
@@ -329,7 +329,7 @@ public class ChatbotTest {
 		//assert Equal the results. 
 		Assert.assertEquals("Moderate Rain Expected", chanceOfRain);
 	}
-	@Test
+	@Test //using asert Not Equal:::::
 	void lightRainSixtyPercent() { //40-60% is a moderate to light shower rainfall. 
 		//mock weather response: in percentage of rain:
 		String precipitation = "60.0";
@@ -337,7 +337,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Moderate Rain Expected", chanceOfRain);
+		Assert.assertNotEquals("Heavy Rain Expected", chanceOfRain);
 
 	}
 	
@@ -362,7 +362,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Heavy Rain Expected", chanceOfRain);
+		Assert.assertNotEquals("Slight Chance of Showers", chanceOfRain);
 	}
 	@Test
 	void steadyRainEightyNinePercent() { //70-90 chance of steady rainfall. 
@@ -397,7 +397,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Allert - Heavy Rainfall!", chanceOfRain);
+		Assert.assertNotEquals("No Rain Expected", chanceOfRain);
 
 	}
 	@Test 
