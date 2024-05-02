@@ -60,21 +60,24 @@ public class Chatbot {
 
 	//<<<<<<< HEAD
 	private static void printTemperaturesForNextThreeDays(String location, String weatherResponse) {
-		// Split by line
-		String[] splitter = weatherResponse.split("\n");
+	    // Split by line
+	    String[] splitter = weatherResponse.split("\n");
 
-		System.out.println("Temperatures for " + location + ":");
-		for (int i = 1; i <= 3 && i < splitter.length; i++) {
-			String[] data = splitter[i].split(",");
+	    System.out.println("Temperatures for " + location + ":");
+	    for (int i = 1; i <= 3 && i < splitter.length; i++) {
+	        String[] data = splitter[i].split(",");
 
-			// 9th element is temperature
-			double fahrenheit = Double.parseDouble(data[9]);
-			double celsius = (fahrenheit - 32) * 5 / 9;
+	        // 9th element is temperature
+	        double fahrenheit = Double.parseDouble(data[9]);
+	        double celsius = (fahrenheit - 32) * 5 / 9;
 
-			// Print the temperature for 3 days
-			System.out.println("Day " + i + ": " + celsius + " degrees Celsius");
-		}
-		System.out.println();
+	        // Round the temperature to one decimal place
+	        celsius = Math.round(celsius * 10.0) / 10.0;
+
+	        // Print the temperature for 3 days
+	        System.out.println("Day " + i + ": " + celsius + " degrees Celsius");
+	    }
+	    System.out.println();
 	}
 	
 	//getPrecipitation method to get preicipitation in percentage. 
