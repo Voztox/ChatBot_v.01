@@ -179,15 +179,15 @@ public class ChatbotGUI extends JFrame {
  // Suggest clothing based on temperature
  public static String suggestClothing(double temperature) {
      if (temperature < -5) { // Update condition for very cold temperatures
-         return "You should wear a heavy coat."; // Suggest wearing a heavy coat for very cold temperatures
+         return "You should wear a heavy coat. \n"; // Suggest wearing a heavy coat for very cold temperatures
      } else if (temperature < 5) {
-         return "You should wear a light jacket.";
+         return "You should wear a light jacket \n.";
      } else if (temperature < 17) {
-         return "You should wear a shirt.";
+         return "You should wear a shirt. \n";
      } else if (temperature < 25) {
-         return "You should wear shorts.";
+         return "You should wear shorts. \n";
      } else {
-         return "You should wear Borat's mankini";
+         return "You should wear Borat's mankini \n";
      }
  }
 }
