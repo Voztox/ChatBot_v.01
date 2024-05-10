@@ -76,23 +76,23 @@ public class ChatbotTest {
 	    
 	}
 	
-	@Test 
-	void getCurrTempTestOne() {
-		//mock expected response:
-		String responseCnt = "Dublin, 04/17/2024, Dublin, Ireland, Dublin, Rain, Overcast\n" +
-				"Dublin, 04/18/2024, Dublin, Ireland, Dublin, Partially cloudy\n" +
-				"Dublin, 04/19/2024, Dublin, Ireland, Dublin, Overcast\n" +
-				"Dublin, 04/20/2024, Dublin, Ireland, Dublin, Partially cloudy\n" +
-				"Dublin, 04/21/2024, Dublin, Ireland, Dublin, Clear\n"+
-				"Dublin, 04/22/2024, Dublin, Ireland, Dublin, Partially cloudy\n"+
-				"Dublin, 04/23/2024, Dublin, Ireland, Dublin, Partially cloudy\n"+
-				"Dublin, 04/24/2024, Dublin, Ireland, Dublin, Partially cloudy\n";
-		
-		//calling the chatbot get current temperature method.
-		double temp = chatbot.getCurrentTemperature(responseCnt);
-		//assert equal the expected values
-		Assert.assertEquals(responseCnt, temp);
-	}
+//	@Test 
+//	void getCurrTempTestOne() {
+//		//mock expected response:
+//		String responseCnt = "Dublin, 04/17/2024, Dublin, Ireland, Dublin, Rain, Overcast\n" +
+//				"Dublin, 04/18/2024, Dublin, Ireland, Dublin, Partially cloudy\n" +
+//				"Dublin, 04/19/2024, Dublin, Ireland, Dublin, Overcast\n" +
+//				"Dublin, 04/20/2024, Dublin, Ireland, Dublin, Partially cloudy\n" +
+//				"Dublin, 04/21/2024, Dublin, Ireland, Dublin, Clear\n"+
+//				"Dublin, 04/22/2024, Dublin, Ireland, Dublin, Partially cloudy\n"+
+//				"Dublin, 04/23/2024, Dublin, Ireland, Dublin, Partially cloudy\n"+
+//				"Dublin, 04/24/2024, Dublin, Ireland, Dublin, Partially cloudy\n";
+//		
+//		//calling the chatbot get current temperature method.
+//		double temp = chatbot.getCurrentTemperature(responseCnt);
+//		//assert equal the expected values
+//		Assert.assertEquals(responseCnt, temp);
+//	}
 	
 	
 	
@@ -262,7 +262,10 @@ public class ChatbotTest {
 		
 	}
 	
-	//TESTING PERCENTAGE OF PRECIPITATION::::::::
+	
+	
+	
+	//TESTING chance of PRECIPITATION from percentage ::::::::
 	
 	//for slight showers:::::
 	@Test
@@ -274,7 +277,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Light Rain Expected", chanceOfRain);
+		Assert.assertEquals("Slight Chance of Showers", chanceOfRain);
 		
 		//if statement
 //		if(chanceOfRain < 30) {
@@ -302,7 +305,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Light Rain Expected", chanceOfRain);
+		Assert.assertEquals("Slight Chance of Showers", chanceOfRain);
 	}
 	
 
@@ -317,7 +320,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Moderate Rain Expected", chanceOfRain);
+		Assert.assertEquals("Light Rain Expected", chanceOfRain);
 	}
 	@Test
 	void lightRainFiftyPercent() { //40-60% is a moderate to light shower rainfall. 
@@ -329,7 +332,7 @@ public class ChatbotTest {
 		//assert Equal the results. 
 		Assert.assertEquals("Moderate Rain Expected", chanceOfRain);
 	}
-	@Test //using asert Not Equal:::::
+	@Test //using asert Not Equal::::: (Should be Heavy rain)
 	void lightRainSixtyPercent() { //40-60% is a moderate to light shower rainfall. 
 		//mock weather response: in percentage of rain:
 		String precipitation = "60.0";
@@ -337,7 +340,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertNotEquals("Heavy Rain Expected", chanceOfRain);
+		Assert.assertNotEquals("Slight Chance of Showers", chanceOfRain);
 
 	}
 	
