@@ -30,7 +30,7 @@ public class ChatbotStart {
             }
 
             for (String location : locations) {
-  
+                String weatherResponse = getWeatherResponse(location);
 
             }
 
@@ -38,6 +38,28 @@ public class ChatbotStart {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }}
+    }
+
+
+    private static String getWeatherResponse(String location) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+        String encodedLocation = URLEncoder.encode(location, "UTF-8");
+        Request request = new Request.Builder()
+                .url("https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location="
+                        + encodedLocation + "&contentType=csv&unitGroup=us&shortColumnNames=0")
+                .get()
+                .addHeader("X-RapidAPI-Key", RAPID_API_KEY)
+                .addHeader("X-RapidAPI-Host", RAPID_API_HOST)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            if (response.isSuccessful()) {
+                return response.body().string();
+            } else {
+                throw new IOException("Error " + response.code());
+            }
+        }
+    }
+
 
 
