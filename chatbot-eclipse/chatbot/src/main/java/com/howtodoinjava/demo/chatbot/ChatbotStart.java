@@ -31,6 +31,11 @@ public class ChatbotStart {
 
             for (String location : locations) {
                 String weatherResponse = getWeatherResponse(location);
+                printTemperaturesForNextThreeDays(location, weatherResponse);
+                double currentTemperature = getCurrentTemperature(weatherResponse);
+                String clothingSuggestion = suggestClothing(currentTemperature);
+                System.out.println("Prcentage of Precipitation: " +getPrecipitationPercentage(weatherResponse));
+                System.out.println("Clothing suggestion for " + location + ": " + clothingSuggestion);
 
             }
 
@@ -40,6 +45,65 @@ public class ChatbotStart {
         }
     }
 
+	private static void printTemperaturesForNextThreeDays(String location, String weatherResponse) {
+		// Split by line
+		String[] splitter = weatherResponse.split("\n");
+
+		System.out.println("Temperatures for " + location + ":");
+		for (int i = 1; i <= 3 && i < splitter.length; i++) {
+			String[] data = splitter[i].split(",");
+
+			// 9th element is temperature
+			double fahrenheit = Double.parseDouble(data[9]);
+			double celsius = (fahrenheit - 32) * 5 / 9;
+
+			// Print the temperature for 3 days
+			System.out.println("Day " + i + ": " + celsius + " degrees Celsius");
+		}
+		System.out.println();
+	}
+    public static String getPrecipitationPercentage(String weatherResponse) {
+        // Split by line
+        String[] lines = weatherResponse.split("\n");
+        StringBuilder result = new StringBuilder();
+
+        // Process the next three days 
+        for (int i = 1; i <= 3 && i < lines.length; i++) {
+            String[] data = lines[i].split(",");
+            
+           
+            try {
+                double precipitationPercentage = Double.parseDouble(data[14]); //
+                result.append("Day ").append(i).append(": ");
+                if (precipitationPercentage >= 90.0) {
+                    result.append("Alert - Heavy Rainfall!");
+                } else if (precipitationPercentage >= 70.0) {
+                    result.append("Heavy Rain Expected");
+                } else if (precipitationPercentage >= 50.0) {
+                    result.append("Moderate Rain Expected");
+                } else if (precipitationPercentage >= 30.0) {
+                    result.append("Light Rain Expected");
+                } else if (precipitationPercentage >= 10.0) {
+                    result.append("Slight Chance of Showers");
+                } else {
+                    result.append("No Rain Expected");
+                }
+                result.append("\n");
+            } catch (NumberFormatException e) {
+                System.err.println("Error parsing precipitation data for day " + i);
+                result.append("Day ").append(i).append(": Error parsing data\n");
+            }
+        }
+
+        return result.toString().trim();
+    }
+
+    private static double getCurrentTemperature(String weatherResponse) {
+        String[] splitter = weatherResponse.split("\n");
+        String[] data = splitter[1].split(",");
+        double fahrenheit = Double.parseDouble(data[9]);
+        return Math.round((fahrenheit - 32) * 5 / 9);
+    }
 
     private static String getWeatherResponse(String location) throws IOException {
         OkHttpClient client = new OkHttpClient();
@@ -71,5 +135,3 @@ public class ChatbotStart {
         }
     }
 }
-
-
