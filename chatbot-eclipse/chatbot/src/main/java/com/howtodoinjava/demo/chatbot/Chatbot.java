@@ -1,182 +1,117 @@
-//Importing required Packages
 package com.howtodoinjava.demo.chatbot;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
-import java.net.URLEncoder;
-import java.util.Scanner;
+import java.io.InputStreamReader;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-//End of imports 
+import org.alicebot.ab.Bot;
+import org.alicebot.ab.Chat;
+import org.alicebot.ab.History;
+import org.alicebot.ab.MagicBooleans;
+import org.alicebot.ab.MagicStrings;
+import org.alicebot.ab.utils.IOUtils;
 
 public class Chatbot {
-	// RapidAPI Key
-	private static final String RAPID_API_KEY = "5cbd79b3f8mshd316ad243985354p122029jsn597e43ad9374";
+    private static final boolean TRACE_MODE = false;
+    static String botName = "super";
+    static Bot bot;
+    static Chat chatSession;
 
-	// RapidAPI Host
-	private static final String RAPID_API_HOST = "visual-crossing-weather.p.rapidapi.com";
+    public static void main(String[] args) {
+        try {
+            initializeBot();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            boolean continueChat = true;
 
-	public Chatbot(OkHttpClient httpClient) {
-		try {
-			Scanner scanner = new Scanner(System.in);
-			String[] locations = new String[5];
+            while (continueChat) {
+                System.out.print("Human : ");
+                String textLine;
+                try {
+                    textLine = reader.readLine();
+                    if (textLine == null) {
+                        // Input stream closed
+                        System.err.println("Input stream closed. Exiting.");
+                        break;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.err.println("Error reading input. Please try again.");
+                    continue; // Continue the loop to prompt the user for input again
+                }
 
+                if (textLine.trim().isEmpty()) {
+                    // Skip empty input lines
+                    continue;
+                }
 
-			// Ask the user to enter 5 locations
-			for (int i = 0; i < 5; i++) {
-				System.out.print("Hi, please enter destination " + (i + 1) + ": ");
-				locations[i] = scanner.nextLine();
-			}
+                continueChat = processInput(textLine);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static String suggestClothing(double temperature) {
+        if (temperature < 5) {
+            return "You should wear a light jacket.";
+        } else if (temperature < 17) {
+            return "You should wear a shirt.";
+        } else {
+            return "You should wear shorts";
+        }
+    }
 
-			//<<<<<<< HEAD
-			// Loop for each location
-			for (String location : locations) {
-				// Call API
-				String weatherResponse = getWeatherResponse(location);
+    private static void initializeBot() {
+        try {
+            String resourcesPath = getResourcesPath();
+            MagicBooleans.trace_mode = TRACE_MODE;
+            bot = new Bot("super", resourcesPath);
+            chatSession = new Chat(bot);
+            bot.brain.nodeStats();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-				// Print temperatures for the next three days
-				printTemperaturesForNextThreeDays(location, weatherResponse);
+    private static boolean processInput(String textLine) {
+        if (textLine.equalsIgnoreCase("WHAT IS THE WEATHER")) {
+            System.out.println("Fetching weather information...");
+            // After providing weather data, reinitialize the bot
+            initializeBot();
+        } else if (textLine.equalsIgnoreCase("weather")) {
+            // Launch ChatbotStart if input is "weather"
+            ChatbotStart chatbotStart = new ChatbotStart();
+            chatbotStart.main(new String[]{});
+            // After launching ChatbotStart, reinitialize the bot
+            initializeBot();
+            return false; // Exit the loop after launching ChatbotStart
+        } else if (textLine.equalsIgnoreCase("q")) {
+            System.exit(0);
+        } else if (textLine.equalsIgnoreCase("wq")) {
+            bot.writeQuit();
+            System.exit(0);
+        } else {
+            String request = textLine;
+            if (MagicBooleans.trace_mode)
+                System.out.println(
+                        "STATE=" + request + ":THAT=" + ((History) chatSession.thatHistory.get(0)).get(0)
+                                + ":TOPIC=" + chatSession.predicates.get("topic"));
+            String response = chatSession.multisentenceRespond(request);
+            while (response.contains("&lt;"))
+                response = response.replace("&lt;", "<");
+            while (response.contains("&gt;"))
+                response = response.replace("&gt;", ">");
+            System.out.println("Robot : " + response);
+        }
+        return true; // Continue the loop
+    }
 
-				// Get current temperature
-				double currentTemperature = getCurrentTemperature(weatherResponse);
-
-				// Suggest clothing based on current temperature
-				String clothingSuggestion = suggestClothing(currentTemperature);
-				System.out.println("Clothing suggestion for " + location + ": " + clothingSuggestion);
-
-				System.out.println("");
-				System.out.println("Chances of Precipitation for " +location);
-				System.out.println(getPrecipitationPercentage(weatherResponse));
-			}
-
-			scanner.close();
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-	}
-	
-	
-
-
-	//<<<<<<< HEAD
-	private static void printTemperaturesForNextThreeDays(String location, String weatherResponse) {
-		// Split by line
-		String[] splitter = weatherResponse.split("\n");
-
-		System.out.println("Temperatures for " + location + ":");
-		for (int i = 1; i <= 3 && i < splitter.length; i++) {
-			String[] data = splitter[i].split(",");
-
-			// 9th element is temperature
-			double fahrenheit = Double.parseDouble(data[9]);
-			double celsius = (fahrenheit - 32) * 5 / 9;
-
-			// Print the temperature for 3 days
-			System.out.println("Day " + i + ": " + celsius + " degrees Celsius");
-		}
-		System.out.println();
-	}
-	
-	//getPrecipitation method to get preicipitation in percentage. 
-	public static String getPrecipitationPercentage(String weatherResponse) {
-		//split by lines
-				String[] splitter = weatherResponse.split("\n");
-				
-				//if api weather response contains multiple lines:
-			    if (splitter.length >= 2) {
-			    	//we would also have to split the second line.
-			    	 String[] data = splitter[1].split(",");
-			    	
-			    	 //try catch::::
-			    	 try {
-			    		 //parsing data 11/7/4
-			    		 double precipitationPercentage = Double.parseDouble(data[14]);
-			    		 System.out.println("Prcentage of Precipitation: " +precipitationPercentage);
-			    		 
-			    		 //messages that comes with each percentage of precipitation:
-			                if (precipitationPercentage >= 90.0) { //greater or equal to 90
-			                    return "Alert - Heavy Rainfall!";
-			                } else if (precipitationPercentage >= 70.0) { //89-70
-			                    return "Heavy Rain Expected";
-			                } else if (precipitationPercentage >= 50.0) { //69-50
-			                    return "Moderate Rain Expected";
-			                } else if (precipitationPercentage >= 30.0) { //49 -30
-			                    return "Light Rain Expected";
-			                } else if (precipitationPercentage >= 10.0) {//29-10
-			                    return "Slight Chance of Showers";
-			                } else if (precipitationPercentage >= 00.0){
-			                    return "No Rain Expected"; //9 and less. 
-			                }
-
-			    	 }//try
-			    	 catch(NumberFormatException e) {
-			                // Handle parsing errors if any
-			                e.printStackTrace();
-			            }//catch
-
-			    }
-				return null;
-	    	
-				
-			}//getPrecipitationPercentage
-
-	public static double getCurrentTemperature(String weatherResponse) {
-		// Split by line
-		String[] splitter = weatherResponse.split("\n");
-
-		// First line contains current weather data
-		String[] data = splitter[1].split(",");
-
-		// 9th element is temperature
-		double fahrenheit = Double.parseDouble(data[9]);
-		return (fahrenheit - 32) * 5 / 9;
-	}
-
-	public String getWeatherResponse(String location) throws IOException {
-
-		OkHttpClient client = new OkHttpClient();
-
-		// Encode the location
-		String encodedLocation = URLEncoder.encode(location, "UTF-8");
-
-		Request request = new Request.Builder()
-				.url("https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location="
-						+ encodedLocation + "&contentType=csv&unitGroup=us&shortColumnNames=0")
-				.get()
-				.addHeader("X-RapidAPI-Key", RAPID_API_KEY)
-				.addHeader("X-RapidAPI-Host", RAPID_API_HOST)
-				.build();
-
-		try (Response response = client.newCall(request).execute()) {
-			if (response.isSuccessful()) {
-				return response.body().string();
-			} else {
-				throw new IOException("Error " + response);
-			}
-		}
-	}
-	
-	
-	//clothing suggesstion based on temperature, if u want to add more based on other conditions use different index F.E double fahrenheit = Double.parseDouble(data[11]);
-	// Update suggestClothing() method in your Chatbot class
-
-	// Update suggestClothing() method in your Chatbot class
-
-	public static String suggestClothing(double temperature) {
-	    if (temperature < -5) { // Update condition for very cold temperatures
-	        return "You should wear a heavy coat."; // Suggest wearing a heavy coat for very cold temperatures
-	    } else if (temperature < 5) {
-	        return "You should wear a light jacket.";
-	    } else if (temperature < 17) {
-	        return "You should wear a shirt.";
-	    } else if (temperature < 25) {
-	        return "You should wear shorts.";
-	    } else {
-	        return "You should wear Borat's mankini";
-	    }
-	}
-
-
+    private static String getResourcesPath() {
+        File currDir = new File(".");
+        String path = currDir.getAbsolutePath();
+        path = path.substring(0, path.length() - 2);
+        String resourcesPath = path + File.separator + "src" + File.separator + "main" + File.separator + "resources";
+        return resourcesPath;
+    }
 }
+
