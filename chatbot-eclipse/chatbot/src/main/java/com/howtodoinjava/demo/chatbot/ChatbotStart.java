@@ -61,5 +61,15 @@ public class ChatbotStart {
         }
     }
 
+    public static String suggestClothing(double temperature) {
+        if (temperature < 5) {
+            return "You should wear a light jacket.";
+        } else if (temperature < 17) {
+            return "You should wear a shirt.";
+        } else {
+            return "You should wear shorts";
+        }
+    }
+}
 
 
