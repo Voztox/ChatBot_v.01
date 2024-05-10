@@ -16,27 +16,29 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class ChatbotStart {
+    // API keys
     private static final String RAPID_API_KEY = "5cbd79b3f8mshd316ad243985354p122029jsn597e43ad9374";
     private static final String RAPID_API_HOST = "visual-crossing-weather.p.rapidapi.com";
 
     public static void main(String[] args) {
         try {
             Scanner scanner = new Scanner(System.in);
-            String[] locations = new String[5];
+            String[] locations = new String[5];  // Stores locations
 
+            //  input 5 locations
             for (int i = 0; i < 5; i++) {
                 System.out.print("Hi, please enter destination " + (i + 1) + ": ");
                 locations[i] = scanner.nextLine();
             }
 
+            // location for weather data
             for (String location : locations) {
                 String weatherResponse = getWeatherResponse(location);
                 printTemperaturesForNextThreeDays(location, weatherResponse);
                 double currentTemperature = getCurrentTemperature(weatherResponse);
                 String clothingSuggestion = suggestClothing(currentTemperature);
-                System.out.println("Prcentage of Precipitation: " +getPrecipitationPercentage(weatherResponse));
+                System.out.println("Percentage of Precipitation: " + getPrecipitationPercentage(weatherResponse));
                 System.out.println("Clothing suggestion for " + location + ": " + clothingSuggestion);
-
             }
 
             scanner.close();
@@ -45,35 +47,29 @@ public class ChatbotStart {
         }
     }
 
-	private static void printTemperaturesForNextThreeDays(String location, String weatherResponse) {
-		// Split by line
-		String[] splitter = weatherResponse.split("\n");
+    // Prints temperature for the next three days
+    private static void printTemperaturesForNextThreeDays(String location, String weatherResponse) {
+        String[] splitter = weatherResponse.split("\n");
 
-		System.out.println("Temperatures for " + location + ":");
-		for (int i = 1; i <= 3 && i < splitter.length; i++) {
-			String[] data = splitter[i].split(",");
+        System.out.println("Temperatures for " + location + ":");
+        for (int i = 1; i <= 3 && i < splitter.length; i++) {
+            String[] data = splitter[i].split(",");
+            double fahrenheit = Double.parseDouble(data[9]);
+            double celsius = (fahrenheit - 32) * 5 / 9;
+            System.out.println("Day " + i + ": " + Math.round(celsius) + " degrees Celsius");
+        }
+        System.out.println();
+    }
 
-			// 9th element is temperature
-			double fahrenheit = Double.parseDouble(data[9]);
-			double celsius = (fahrenheit - 32) * 5 / 9;
-
-			// Print the temperature for 3 days
-			System.out.println("Day " + i + ": " + celsius + " degrees Celsius");
-		}
-		System.out.println();
-	}
+    //  provide precipitation information for the next three days
     public static String getPrecipitationPercentage(String weatherResponse) {
-        // Split by line
         String[] lines = weatherResponse.split("\n");
         StringBuilder result = new StringBuilder();
 
-        // Process the next three days 
         for (int i = 1; i <= 3 && i < lines.length; i++) {
             String[] data = lines[i].split(",");
-            
-           
             try {
-                double precipitationPercentage = Double.parseDouble(data[14]); //
+                double precipitationPercentage = Double.parseDouble(data[14]);
                 result.append("Day ").append(i).append(": ");
                 if (precipitationPercentage >= 90.0) {
                     result.append("Alert - Heavy Rainfall!");
@@ -98,6 +94,7 @@ public class ChatbotStart {
         return result.toString().trim();
     }
 
+    // Calculates the current temperature 
     private static double getCurrentTemperature(String weatherResponse) {
         String[] splitter = weatherResponse.split("\n");
         String[] data = splitter[1].split(",");
@@ -105,6 +102,7 @@ public class ChatbotStart {
         return Math.round((fahrenheit - 32) * 5 / 9);
     }
 
+    // Fetches weather data from an API 
     private static String getWeatherResponse(String location) throws IOException {
         OkHttpClient client = new OkHttpClient();
         String encodedLocation = URLEncoder.encode(location, "UTF-8");
@@ -125,6 +123,7 @@ public class ChatbotStart {
         }
     }
 
+    // Suggests appropriate clothing 
     public static String suggestClothing(double temperature) {
         if (temperature < 5) {
             return "You should wear a light jacket.";
