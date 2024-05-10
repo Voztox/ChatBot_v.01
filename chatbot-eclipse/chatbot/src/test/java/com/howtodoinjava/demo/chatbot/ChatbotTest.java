@@ -107,7 +107,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 				String clothingSuggestion = Chatbot.suggestClothing(temp);
 				//assert equal the result:
-				Assert.assertEquals("You should wear a heavy coat.", clothingSuggestion);
+				Assert.assertEquals("You should wear a heavy coat.", clothingSuggestion, 0.01);
 					
 	}
 	
@@ -118,7 +118,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
-		Assert.assertEquals("You should wear a light jacket.", clothingSuggestion);
+		Assert.assertEquals("You should wear a light jacket.", clothingSuggestion, 0.01);
 	}
 
 	@Test
@@ -128,7 +128,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
-		Assert.assertEquals("You should wear a shirt.", clothingSuggestion);
+		Assert.assertEquals("You should wear a shirt.", clothingSuggestion, 0.01);
 	}
 	
 	void suggest_ShortTest() {
@@ -137,7 +137,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
-		Assert.assertEquals("You should wear shorts.", clothingSuggestion);
+		Assert.assertEquals("You should wear shorts.", clothingSuggestion, 0.01);
 	}
 	
 	
@@ -151,7 +151,7 @@ public class ChatbotTest {
 			//calling the Suggest Clothing method in chatbot
 			String clothingSuggestion = Chatbot.suggestClothing(temp);
 			//assert Equal the conditon
-			Assert.assertEquals("You should wear a Borat's mankini.", clothingSuggestion);
+			Assert.assertEquals("You should wear a Borat's mankini.", clothingSuggestion, 0.01);
 		}
 	}
 	
@@ -166,7 +166,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
-		Assert.assertEquals("You should wear a heavy coat.", clothingSuggestion);
+		Assert.assertEquals("You should wear a heavy coat.", clothingSuggestion, 0.01);
 	}
 	@Test
 	void lightJacketForTempThree() {
@@ -175,7 +175,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
-		Assert.assertEquals("You should wear a light jacket.", clothingSuggestion);
+		Assert.assertEquals("You should wear a light jacket.", clothingSuggestion, 0.01);
 		
 	}
 	@Test
@@ -184,7 +184,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
-		Assert.assertEquals("You should wear a shirt.", clothingSuggestion);
+		Assert.assertEquals("You should wear a shirt.", clothingSuggestion, 0.01);
 	}
 	@Test
 	void shortForTempTwentyTwo() {
@@ -193,7 +193,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert equal the result:
-		Assert.assertEquals("You should wear shorts.", clothingSuggestion);		
+		Assert.assertEquals("You should wear shorts.", clothingSuggestion, 0.01);		
 	}
 	@Test
 	void mankiniForTempTwentySix() {
@@ -205,7 +205,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		    String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert Equal the conditon
-			Assert.assertEquals("You should wear a Borat's mankini.", clothingSuggestion);
+			Assert.assertEquals("You should wear a Borat's mankini.", clothingSuggestion, 0.01);
 			}
 	}
 	
@@ -219,7 +219,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert not equal the result:
-		Assert.assertNotEquals("You should wear a heavy coat.", clothingSuggestion);
+		Assert.assertNotEquals("You should wear a heavy coat.", clothingSuggestion, 0.01);
 		
 	}
 	@Test
@@ -229,7 +229,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert not equal the result:
-		Assert.assertNotEquals("You should wear a light jacket.", clothingSuggestion);
+		Assert.assertNotEquals("You should wear a light jacket.", clothingSuggestion, 0.01);
 	}
 	@Test
 	void ifNotShirtTemp() {//temperature supposed to be lower than 17 degree.
@@ -238,7 +238,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert not equal the result:
-		Assert.assertNotEquals("You should wear a shirt.", clothingSuggestion);
+		Assert.assertNotEquals("You should wear a shirt.", clothingSuggestion, 0.01);
 
 	}
 	@Test 
@@ -248,7 +248,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert not equal the result:
-		Assert.assertNotEquals("You should wear shorts.", clothingSuggestion);
+		Assert.assertNotEquals("You should wear shorts.", clothingSuggestion, 0.01);
 		
 	}
 	@Test 
@@ -258,7 +258,7 @@ public class ChatbotTest {
 		//calling the Suggest Clothing method in chatbot
 		String clothingSuggestion = Chatbot.suggestClothing(temp);
 		//assert not equal the result:
-		Assert.assertNotEquals("You should wear Borat's mankini", clothingSuggestion);
+		Assert.assertNotEquals("You should wear Borat's mankini", clothingSuggestion, 0.01);
 		
 	}
 	
@@ -277,7 +277,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Slight Chance of Showers", chanceOfRain);
+		Assert.assertEquals("Slight Chance of Showers", chanceOfRain , 0.01);
 		
 		//if statement
 //		if(chanceOfRain < 30) {
@@ -294,7 +294,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertNotEquals("Alert - Heavy Rainfall!", chanceOfRain);
+		Assert.assertNotEquals("Alert - Heavy Rainfall!", chanceOfRain, 0.01);
 				
 	}
 	@Test
@@ -305,7 +305,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Slight Chance of Showers", chanceOfRain);
+		Assert.assertEquals("Slight Chance of Showers", chanceOfRain, 0.01);
 	}
 	
 
@@ -320,7 +320,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Light Rain Expected", chanceOfRain);
+		Assert.assertEquals("Light Rain Expected", chanceOfRain, 0.01);
 	}
 	@Test
 	void lightRainFiftyPercent() { //40-60% is a moderate to light shower rainfall. 
@@ -330,7 +330,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Moderate Rain Expected", chanceOfRain);
+		Assert.assertEquals("Moderate Rain Expected", chanceOfRain, 0.01);
 	}
 	@Test //using asert Not Equal::::: (Should be Heavy rain)
 	void lightRainSixtyPercent() { //40-60% is a moderate to light shower rainfall. 
@@ -340,7 +340,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertNotEquals("Slight Chance of Showers", chanceOfRain);
+		Assert.assertNotEquals("Slight Chance of Showers", chanceOfRain, 0.01);
 
 	}
 	
@@ -354,7 +354,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Heavy Rain Expected", chanceOfRain);
+		Assert.assertEquals("Heavy Rain Expected", chanceOfRain, 0.01);
 
 	}
 	@Test
@@ -365,7 +365,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertNotEquals("Slight Chance of Showers", chanceOfRain);
+		Assert.assertNotEquals("Slight Chance of Showers", chanceOfRain, 0.01);
 	}
 	@Test
 	void steadyRainEightyNinePercent() { //70-90 chance of steady rainfall. 
@@ -375,7 +375,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Heavy Rain Expected", chanceOfRain);
+		Assert.assertEquals("Heavy Rain Expected", chanceOfRain, 0.01);
 
 	}
 	
@@ -389,7 +389,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Allert - Heavy Rainfall!", chanceOfRain);
+		Assert.assertEquals("Allert - Heavy Rainfall!", chanceOfRain, 0.01);
 
 	}
 	@Test 
@@ -400,7 +400,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertNotEquals("No Rain Expected", chanceOfRain);
+		Assert.assertNotEquals("No Rain Expected", chanceOfRain, 0.01);
 
 	}
 	@Test 
@@ -411,7 +411,7 @@ public class ChatbotTest {
 		//calling the getPrecipitationPercentage method in chatbot. 
 		String chanceOfRain = Chatbot.getPrecipitationPercentage(precipitation);
 		//assert Equal the results. 
-		Assert.assertEquals("Allert - Heavy Rainfall!", chanceOfRain);
+		Assert.assertEquals("Allert - Heavy Rainfall!", chanceOfRain, 0.01);
 
 	}
 	

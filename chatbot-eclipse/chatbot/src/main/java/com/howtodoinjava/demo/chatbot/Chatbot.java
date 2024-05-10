@@ -45,6 +45,7 @@ public class Chatbot {
 				String clothingSuggestion = suggestClothing(currentTemperature);
 				System.out.println("Clothing suggestion for " + location + ": " + clothingSuggestion);
 
+				System.out.println("");
 				System.out.println("Chances of Precipitation for " +location);
 				System.out.println(getPrecipitationPercentage(weatherResponse));
 			}
@@ -95,17 +96,17 @@ public class Chatbot {
 			    		 System.out.println("Prcentage of Precipitation: " +precipitationPercentage);
 			    		 
 			    		 //messages that comes with each percentage of precipitation:
-			                if (precipitationPercentage >= 90) { //greater or equal to 90
+			                if (precipitationPercentage >= 90.0) { //greater or equal to 90
 			                    return "Alert - Heavy Rainfall!";
-			                } else if (precipitationPercentage >= 70) { //89-70
+			                } else if (precipitationPercentage >= 70.0) { //89-70
 			                    return "Heavy Rain Expected";
-			                } else if (precipitationPercentage >= 50) { //69-50
+			                } else if (precipitationPercentage >= 50.0) { //69-50
 			                    return "Moderate Rain Expected";
-			                } else if (precipitationPercentage >= 30) { //49 -30
+			                } else if (precipitationPercentage >= 30.0) { //49 -30
 			                    return "Light Rain Expected";
-			                } else if (precipitationPercentage >= 10) {//29-10
+			                } else if (precipitationPercentage >= 10.0) {//29-10
 			                    return "Slight Chance of Showers";
-			                } else {
+			                } else if (precipitationPercentage >= 00.0){
 			                    return "No Rain Expected"; //9 and less. 
 			                }
 
