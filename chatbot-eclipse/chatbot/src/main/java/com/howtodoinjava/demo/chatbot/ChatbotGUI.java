@@ -18,21 +18,21 @@ import java.net.URLEncoder;
 
 // Main class for the Chatbot GUI
 public class ChatbotGUI extends JFrame {
-    // RapidAPI Key
+    // RapidAPI Key for accessing the weather API
     private static final String RAPID_API_KEY = "16648ceb4dmsh7173f54cfdee342p1be6dajsn8282c066674d";
-    // RapidAPI Host
+    // RapidAPI Host for accessing the weather API
     private static final String RAPID_API_HOST = "visual-crossing-weather.p.rapidapi.com";
 
     // Components for the GUI
-    private JTextArea conversationArea;
-    private JTextField inputField;
-    private Chat chatSession;
-    private int locationIndex = 0;
-    private String[] locations = new String[5];
+    private JTextArea conversationArea; // Area to display conversation
+    private JTextField inputField; // Field for user input
+    private Chat chatSession; // Chat session object for handling interactions
+    private int locationIndex = 0; // Index to track the number of locations entered
+    private String[] locations = new String[5]; // Array to store user-entered locations
 
-    // Constructor
+    // Constructor for ChatbotGUI
     public ChatbotGUI(Chat chatSession) {
-        this.chatSession = chatSession;
+        this.chatSession = chatSession; // Initialize the chat session
         setTitle("NoName"); // Set window title
         setDefaultCloseOperation(EXIT_ON_CLOSE); // Set default close operation
         setLayout(new BorderLayout()); // Set layout manager
@@ -50,32 +50,32 @@ public class ChatbotGUI extends JFrame {
 
         // Create and configure conversation area
         conversationArea = new JTextArea();
-        conversationArea.setEditable(false);
-        conversationArea.setFont(new Font("Arial", Font.PLAIN, 24));
-        JScrollPane scrollPane = new JScrollPane(conversationArea);
-        add(scrollPane, BorderLayout.CENTER);
+        conversationArea.setEditable(false); // Make the conversation area read-only
+        conversationArea.setFont(new Font("Arial", Font.PLAIN, 24)); // Set font
+        JScrollPane scrollPane = new JScrollPane(conversationArea); // Add scroll pane to conversation area
+        add(scrollPane, BorderLayout.CENTER); // Add conversation area to the center of the layout
 
         // Create and configure input field
         inputField = new JTextField();
-        inputField.setFont(new Font("Arial", Font.PLAIN, 24));
+        inputField.setFont(new Font("Arial", Font.PLAIN, 24)); // Set font
         inputField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String input = inputField.getText();
-                addMessage("You", input);
-                inputField.setText("");
+                String input = inputField.getText(); // Get text from input field
+                addMessage("You", input); // Add user message to conversation area
+                inputField.setText(""); // Clear the input field
 
                 if (locationIndex < 5) {
-                    locations[locationIndex++] = input;
+                    locations[locationIndex++] = input; // Store the input location
                     if (locationIndex == 5) {
-                        fetchWeatherAndSuggestClothing();
+                        fetchWeatherAndSuggestClothing(); // Fetch weather and suggest clothing after 5 locations
                     } else {
-                        askForNextLocation();
+                        askForNextLocation(); // Ask for the next location
                     }
                 }
             }
         });
-        add(inputField, BorderLayout.SOUTH);
+        add(inputField, BorderLayout.SOUTH); // Add input field to the bottom of the layout
 
         // Prompt user to enter the first location
         askForNextLocation();
@@ -83,7 +83,7 @@ public class ChatbotGUI extends JFrame {
         setVisible(true); // Make the frame visible
     }
 
-    // Prompt user to enter next location
+    // Prompt user to enter the next location
     private void askForNextLocation() {
         conversationArea.append("Please enter destination " + (locationIndex + 1) + ": ");
     }
@@ -93,10 +93,10 @@ public class ChatbotGUI extends JFrame {
         for (String location : locations) {
             addMessage("NoName Chatbot", "Fetching weather for " + location);
             try {
-                String weatherResponse = getWeatherResponse(location);
-                printTemperaturesForNextThreeDays(location, weatherResponse);
-                double currentTemperature = getCurrentTemperature(weatherResponse);
-                String clothingSuggestion = suggestClothing(currentTemperature);
+                String weatherResponse = getWeatherResponse(location); // Fetch weather data
+                printTemperaturesForNextThreeDays(location, weatherResponse); // Print temperatures
+                double currentTemperature = getCurrentTemperature(weatherResponse); // Get current temperature
+                String clothingSuggestion = suggestClothing(currentTemperature); // Get clothing suggestion
                 addMessage("NoName Chatbot", "Clothing suggestion for " + location + ": " + clothingSuggestion);
             } catch (Exception e) {
                 addMessage("NoName Chatbot", "Error fetching weather for " + location);
@@ -129,36 +129,36 @@ public class ChatbotGUI extends JFrame {
     // Get weather response from API
     private String getWeatherResponse(String location) throws Exception {
         OkHttpClient client = new OkHttpClient();
-        String encodedLocation = URLEncoder.encode(location, "UTF-8");
+        String encodedLocation = URLEncoder.encode(location, "UTF-8"); // Encode location for URL
         Request request = new Request.Builder()
                 .url("https://visual-crossing-weather.p.rapidapi.com/forecast?location=" + encodedLocation + "&aggregateHours=24&shortColumnNames=0&unitGroup=us&contentType=csv")
                 .get()
-                .addHeader("X-RapidAPI-Key", RAPID_API_KEY)
-                .addHeader("X-RapidAPI-Host", RAPID_API_HOST)
+                .addHeader("X-RapidAPI-Key", RAPID_API_KEY) // Add API key header
+                .addHeader("X-RapidAPI-Host", RAPID_API_HOST) // Add API host header
                 .build();
         try (Response response = client.newCall(request).execute()) {
             if (response.isSuccessful()) {
-                return response.body().string();
+                return response.body().string(); // Return the response body as a string
             } else {
-                throw new IOException("Error " + response.code());
+                throw new IOException("Error " + response.code()); // Throw exception if response is not successful
             }
         }
     }
 
-    // Main method
+    // Main method to start the application
     public static void main(String[] args) {
         try {
-            String resourcesPath = getResourcesPath();
-            MagicBooleans.trace_mode = false;
-            Bot bot = new Bot("super", resourcesPath);
-            Chat chatSession = new Chat(bot);
-            new ChatbotGUI(chatSession);
+            String resourcesPath = getResourcesPath(); // Get resources path
+            MagicBooleans.trace_mode = false; // Disable tracing mode
+            Bot bot = new Bot("super", resourcesPath); // Create a new bot instance
+            Chat chatSession = new Chat(bot); // Create a new chat session
+            new ChatbotGUI(chatSession); // Create and display the GUI
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Print stack trace in case of an exception
         }
     }
 
-    // Get resources path
+    // Get resources path for AIML files
     private static String getResourcesPath() {
         File currDir = new File(".");
         String path = currDir.getAbsolutePath();
@@ -170,24 +170,30 @@ public class ChatbotGUI extends JFrame {
 
     // Add a message to the conversation area
     private void addMessage(String sender, String message) {
-        conversationArea.append(sender + ": " + message + "\n");
-        conversationArea.setCaretPosition(conversationArea.getDocument().getLength());
+        conversationArea.append(sender + ": " + message + "\n"); // Append message to conversation area
+        conversationArea.setCaretPosition(conversationArea.getDocument().getLength()); // Scroll to the bottom
     }
 
     // Suggest clothing based on temperature
     public static String suggestClothing(double temperature) {
-        if (temperature < -5) { // Update condition for very cold temperatures
-            return "You should wear a heavy coat. \n"; // Suggest wearing a heavy coat for very cold temperatures
-        } else if (temperature < 5) {
-            return "You should wear a thick jacket with hoodie \n.";
-        } else if (temperature < 10) {
-            return "You should wear a light jacket with hoodie on \n.";
-        } else if (temperature < 17) {
-            return "You can wear a shirt but be careful. \n";
-        } else if (temperature < 25) {
-            return "You can wear shorts. \n";
-        } else {
-            return "You should wear Borat's mankini \n";
+        if (temperature < -10) { // Very cold
+            return "You should wear thermal underwear, a heavy coat, a hat, gloves, and a scarf.";
+        } else if (temperature < 0) { // Cold
+            return "You should wear a heavy coat, a hat, gloves, and a scarf.";
+        } else if (temperature < 5) { // Chilly
+            return "You should wear a thick jacket and a warm hat.";
+        } else if (temperature < 10) { // Cool
+            return "You should wear a jacket and possibly a light hat.";
+        } else if (temperature < 15) { // Mild
+            return "You should wear a light jacket or a sweater.";
+        } else if (temperature < 20) { // Pleasant
+            return "You can wear a long-sleeved shirt or a light sweater.";
+        } else if (temperature < 25) { // Warm
+            return "You can wear a short-sleeved shirt and pants or shorts.";
+        } else if (temperature < 30) { // Hot
+            return "You should wear shorts and a t-shirt.";
+        } else { // Very hot
+            return "You should wear lightweight, breathable clothing, such as a tank top and shorts.";
         }
     }
 }
