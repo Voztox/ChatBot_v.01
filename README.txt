@@ -25,4 +25,4 @@ To start using WeatherBot, simply follow these steps:
 4. Set your API key in the `ChatBot.java` file:
 
 ```ie:
-API_KEY = '5cbd79b3f8mshd316ad243985354p122029jsn597e43ad9374'
+API_KEY = '16648ceb4dmsh7173f54cfdee342p1be6dajsn8282c066674d'
