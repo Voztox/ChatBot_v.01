@@ -13,7 +13,7 @@ public class whenGetRequest_correct {
     public void whenGetRequest_thenCorrect() {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-        		.url("https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=Dublin%2C%20IE&contentType=csv&unitGroup=us&shortColumnNames=0")
+        		.url("https://visual-crossing-weather.p.rapidapi.com/forecast?location=Dublin&aggregateHours=24&shortColumnNames=0&unitGroup=us&contentType=csv")
                 .get()
         		.addHeader("X-RapidAPI-Key", "16648ceb4dmsh7173f54cfdee342p1be6dajsn8282c066674d")
         		.addHeader("X-RapidAPI-Host", "visual-crossing-weather.p.rapidapi.com")

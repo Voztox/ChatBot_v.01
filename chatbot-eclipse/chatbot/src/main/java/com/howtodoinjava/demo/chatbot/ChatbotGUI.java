@@ -131,8 +131,8 @@ public class ChatbotGUI extends JFrame {
         OkHttpClient client = new OkHttpClient();
         String encodedLocation = URLEncoder.encode(location, "UTF-8");
         Request request = new Request.Builder()
-        		.url("https://visual-crossing-weather.p.rapidapi.com/history?startDateTime=2019-01-01T00%3A00%3A00&aggregateHours=24&location=Dublin&endDateTime=2019-01-03T00%3A00%3A00&unitGroup=metric&contentType=json&shortColumnNames=0")
-                .get()
+        		.url("https://visual-crossing-weather.p.rapidapi.com/forecast?location=Dublin&aggregateHours=24&shortColumnNames=0&unitGroup=us&contentType=csv")
+        		.get()
                 .addHeader("X-RapidAPI-Key", RAPID_API_KEY)
                 .addHeader("X-RapidAPI-Host", RAPID_API_HOST)
                 .build();
