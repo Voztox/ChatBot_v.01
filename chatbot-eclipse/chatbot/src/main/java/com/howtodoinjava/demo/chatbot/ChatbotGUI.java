@@ -179,11 +179,13 @@ public class ChatbotGUI extends JFrame {
         if (temperature < -5) { // Update condition for very cold temperatures
             return "You should wear a heavy coat. \n"; // Suggest wearing a heavy coat for very cold temperatures
         } else if (temperature < 5) {
-            return "You should wear a light jacket \n.";
+            return "You should wear a thick jacket with hoodie \n.";
+        } else if (temperature < 10) {
+            return "You should wear a light jacket with hoodie on \n.";
         } else if (temperature < 17) {
-            return "You should wear a shirt. \n";
+            return "You can wear a shirt but be careful. \n";
         } else if (temperature < 25) {
-            return "You should wear shorts. \n";
+            return "You can wear shorts. \n";
         } else {
             return "You should wear Borat's mankini \n";
         }
