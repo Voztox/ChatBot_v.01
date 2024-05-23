@@ -17,7 +17,7 @@ import okhttp3.Response;
 
 public class ChatbotStart {
     // API keys
-    private static final String RAPID_API_KEY = "5cbd79b3f8mshd316ad243985354p122029jsn597e43ad9374";
+    private static final String RAPID_API_KEY = "16648ceb4dmsh7173f54cfdee342p1be6dajsn8282c066674d";
     private static final String RAPID_API_HOST = "visual-crossing-weather.p.rapidapi.com";
 
     public static void main(String[] args) {
