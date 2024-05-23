@@ -13,7 +13,8 @@ public class AsyncGetTest {
     public static void main(String[] args) {
         OkHttpClient client = new OkHttpClient();
         // API request with key and location set to dublin
-        Request request = (new Request.Builder()).url("https://visual-crossing-weather.p.rapidapi.com/history?startDateTime=2019-01-01T00%3A00%3A00&aggregateHours=24&location=Washington%2CDC%2CUSA&endDateTime=2019-01-03T00%3A00%3A00&unitGroup=us&dayStartTime=8%3A00%3A00&contentType=csv&dayEndTime=17%3A00%3A00&shortColumnNames=0")
+        Request request = new Request.Builder()
+        		.url("https://visual-crossing-weather.p.rapidapi.com/history?startDateTime=2019-01-01T00%3A00%3A00&aggregateHours=24&location=Washington%2CDC%2CUSA&endDateTime=2019-01-03T00%3A00%3A00&unitGroup=us&dayStartTime=8%3A00%3A00&contentType=csv&dayEndTime=17%3A00%3A00&shortColumnNames=0")
         		.get()
         		.addHeader("X-RapidAPI-Key", "16648ceb4dmsh7173f54cfdee342p1be6dajsn8282c066674d")
         		.addHeader("X-RapidAPI-Host", "visual-crossing-weather.p.rapidapi.com")
