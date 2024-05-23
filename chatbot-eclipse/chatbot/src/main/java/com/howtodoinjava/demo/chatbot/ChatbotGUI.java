@@ -210,23 +210,27 @@ public class ChatbotGUI extends JFrame {
 			String[] data = splitter[1].split(",");
 			// Try-catch block
 			try {
-				// Parsing data index 14
-				double precipitationPercentage = Double.parseDouble(data[14]);
-				System.out.println("Percentage of Precipitation: " + precipitationPercentage);
+				// Ensure that the index exists and is not empty
+				if (data.length > 14 && !data[14].isEmpty()) {
+					double precipitationPercentage = Double.parseDouble(data[14]);
+					System.out.println("Percentage of Precipitation: " + precipitationPercentage);
 
-				// Messages that come with each percentage of precipitation
-				if (precipitationPercentage >= 90.0) { // Greater or equal to 90
-					ret = "\n Alert - Heavy Rainfall! \n ";
-				} else if (precipitationPercentage >= 70.0) { // 89-70
-					ret = "\n Heavy Rain Expected \n";
-				} else if (precipitationPercentage >= 50.0) { // 69-50
-					ret = "\n Moderate Rain Expected \n";
-				} else if (precipitationPercentage >= 30.0) { // 49-30
-					ret = "\n Light Rain Expected \n";
-				} else if (precipitationPercentage >= 10.0) { // 29-10
-					ret = "\nSlight Chance of Showers \n";
+					// Messages that come with each percentage of precipitation
+					if (precipitationPercentage >= 90.0) { // Greater or equal to 90
+						ret = "Alert - Heavy Rainfall! \n ";
+					} else if (precipitationPercentage >= 70.0) { // 89-70
+						ret = "Heavy Rain Expected \n";
+					} else if (precipitationPercentage >= 50.0) { // 69-50
+						ret = "Moderate Rain Expected \n";
+					} else if (precipitationPercentage >= 30.0) { // 49-30
+						ret = "Light Rain Expected \n";
+					} else if (precipitationPercentage >= 10.0) { // 29-10
+						ret = "Slight Chance of Showers \n";
+					} else {
+						ret = "No Rain Expected \n"; // 9 and less
+					}
 				} else {
-					ret = "No Rain Expected"; // 9 and less
+					ret = "Precipitation data not available \n";
 				}
 			} catch (NumberFormatException e) {
 				// Handle parsing errors if any
